@@ -1,0 +1,23 @@
+@mixin dynamic-text-color() {
+  @media (prefers-color-scheme: dark) {
+    color: white
+  }
+}
+
+@mixin dynamic-body-background() {
+  @media (prefers-color-scheme: dark) {
+    background-color: black
+  }
+}
+
+body {
+  @include dynamic-body-background;
+}
+
+h1 {
+  text-align:center;
+}
+
+.dynamic-text {
+  @include dynamic-text-color;
+}
