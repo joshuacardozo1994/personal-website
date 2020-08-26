@@ -1,23 +1,75 @@
-@mixin dynamic-text-color() {
+$lightColor: #D0E2FF;
+$lightFooterColor: #aed4f4;
+$darkColor: #273036;
+
+
+@mixin dark-mode() {
   @media (prefers-color-scheme: dark) {
-    color: white
+    @content
   }
 }
 
-@mixin dynamic-body-background() {
-  @media (prefers-color-scheme: dark) {
-    background-color: black
-  }
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+h1, h2 {
+  text-align: center;
+}
+
+
 
 body {
-  @include dynamic-body-background;
+  @include dark-mode {
+    background-color: black
+  };
+  max-width: 1200;
+  margin: 0;
 }
 
-h1 {
-  text-align:center;
+a {
+  text-decoration: none;
+  color: #2C363F;
+  font-weight: bold;;
+  @include dark-mode {
+    color: #F1E9DA
+  };
 }
 
 .dynamic-text {
-  @include dynamic-text-color;
+  @include dark-mode {
+    color: white
+  };
+}
+
+.header {
+  width: 100%; 
+  height: 60px;
+}
+
+.social-svg-container {
+  width: 30px; 
+  height: 30px; 
+  margin-right: 20px;
+}
+
+.dynamic-svg {
+  fill: black;
+  @include dark-mode {
+    fill: white
+  };
+}
+
+.dynamic-blob {
+  fill: $lightColor;
+  @include dark-mode {
+    fill: $darkColor
+  };
+}
+
+.dynamic-footer-blob {
+  fill: $lightFooterColor;
+  @include dark-mode {
+    fill: $darkColor
+  };
 }

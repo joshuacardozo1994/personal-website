@@ -1,0 +1,28 @@
+.home-container {
+    padding: 12px;
+    padding-top: 50px;
+    min-height: calc(100vh - 100px);
+    display: flex;
+    // flex-direction: column;
+}
+
+.blob {
+    width: 400px;
+    height: 400px;
+}
+
+.image-container {
+    position: absolute; 
+    width: 400px; 
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.salutation-text {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 3em;
+    text-transform: uppercase;
+  }
