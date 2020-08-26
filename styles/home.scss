@@ -1,9 +1,14 @@
+@import "./mixins.scss";
+
 .home-container {
     padding: 12px;
     padding-top: 50px;
     min-height: calc(100vh - 100px);
     display: flex;
-    // flex-direction: column;
+    flex-direction: column;
+    @include m-device {
+        flex-direction: row;
+    }
 }
 
 .blob {

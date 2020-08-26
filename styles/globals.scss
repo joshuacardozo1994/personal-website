@@ -1,13 +1,8 @@
+@import "./mixins.scss";
+
 $lightColor: #D0E2FF;
 $lightFooterColor: #aed4f4;
 $darkColor: #273036;
-
-
-@mixin dark-mode() {
-  @media (prefers-color-scheme: dark) {
-    @content
-  }
-}
 
 * {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
