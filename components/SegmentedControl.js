@@ -6,19 +6,13 @@ const themes = ["light", "dark"];
 
 const SegmentedControl = () => {
 	const [index, setIndex] = useState(2);
-	const segmentRef = useRef(null);
 	
 	useEffect(() => {
 		const setDefaultTheme = () => {
-			
 			const theme = localStorage.getItem("theme")
 			if (themes.includes(theme)) {
 				document.documentElement.setAttribute('data-theme', theme);
-				if (theme == 'light') {
-					setIndex(0)
-				} else if (theme == 'dark') {
-					setIndex(1)
-				}
+				setIndex(themes.indexOf(theme))
 			}
 		};
 		setDefaultTheme();
@@ -29,7 +23,6 @@ const SegmentedControl = () => {
 		localStorage.setItem("theme", value);
         document.documentElement.setAttribute('data-theme', value);
 	}
-	console.log('segmentRef.current', segmentRef.current);
     
     return (
         <div class="ios13-segmented-control">
