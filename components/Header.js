@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import Link from 'next/link'
 
 import SegmentedControl from '../components/SegmentedControl';
 
 const Header = () => {
+    const [open, setOpen] = useState(false);
+    
+    function toggleOpen() {
+        setOpen(!open);
+    }
 
     return (
         <div style={{ display: 'flex', flexDirection: 'row' }} >
@@ -39,6 +44,9 @@ const Header = () => {
             <SegmentedControl />
         </div>
         <div className="hamburger-menu">
+            <div onClick={toggleOpen} className={`menu-button ${open ? 'open' : ''}`}>
+                <div className="menu-button__burger"></div>
+            </div>
         </div>
         </div>
     )

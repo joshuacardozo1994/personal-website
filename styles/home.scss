@@ -22,9 +22,6 @@ $image-container-side-length: 400px;
     
     display: flex;
     flex-direction: column;
-    
-    padding-top: 50px;
-
     @include m-device {
         flex-direction: row;
     }
@@ -46,7 +43,6 @@ $image-container-side-length: 400px;
 }
 
 .salutation-text {
-    margin-top: 20px;
     text-align: center;
     font-size: 3em;
     text-transform: uppercase;
