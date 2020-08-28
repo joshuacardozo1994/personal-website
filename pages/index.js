@@ -70,7 +70,7 @@ export default function Home() {
     <div className="hero-section container" >
       <RandomBlob />
       <div style={{ flex: 1 }} >
-        <h1 className="dynamic-text salutation-text" style={{ borderRight: 2, position: 'absolute' }}>{text}{text == (salutationBaseText + salutationFinalText) ? "" : "|"}</h1>
+        <h1 className="dynamic-text salutation-text">{text}{text == (salutationBaseText + salutationFinalText) ? "" : "|"}</h1>
         <p className="dynamic-text" style={{ marginTop: 200 }} >Hi, I'm Joshua, a mobile and web front-end developer. I help turn designs into high quality products.</p>
         </div>
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
