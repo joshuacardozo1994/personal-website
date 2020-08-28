@@ -14,7 +14,7 @@ const SAR = () => {
     return (
         <div style={{ minHeight: '100vh' }} >
         <h1 className="dynamic-text" style={{ textAlign: 'center', marginTop: 50 }}>Actually your ass is sexier</h1>
-        <div style={{ display: "flex", justifyContent: 'flex-end', marginRight: 50 }} >{showSender ? "-Rochelle to Joshua" : ""}</div>
+        <div className="dynamic-text" style={{ display: "flex", justifyContent: 'flex-end', marginRight: 50 }} >{showSender ? "-Rochelle to Joshua" : ""}</div>
         </div>
     )
 }
