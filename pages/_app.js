@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:title" content="Joshua Cardozo" />
         <meta property="og:description" content="Mobile and front-end Developer based in Goa, India" />
         <meta property="og:image" content="https://joshuacardozo.com/profile.jpg" />
-        <meta property="og:url" content="https://joshuacardozo.com/joshua-banner.jpg" />
+        <meta property="og:url" content="https://joshuacardozo.com" />
       </Head>
       <Header />
       <Component {...pageProps}/>
