@@ -9,7 +9,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <html lang="en-us" />
         <title>Joshua Cardozo</title>
         <meta name="description" content="Mobile and front-end Developer based in Goa, India" />
         <meta name="keywords" content="Swift, iOS, JavaScript, React, NextJS, HTML, CSS" />
