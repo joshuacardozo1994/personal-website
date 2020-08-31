@@ -67,15 +67,21 @@ export default function Home() {
 
   return (
     <>
-    <div className="hero-section container" >
+    <div className="container">
+    <div className="hero-section" >
       <RandomBlob />
-      <div style={{ flex: 1 }} >
+      <div className="f-1" >
         <h1 className="dynamic-text salutation-text">{text}{text == (salutationBaseText + salutationFinalText) ? "" : "|"}</h1>
-        <p className="dynamic-text" style={{ marginTop: 200 }} >Hi, I'm Joshua, a mobile and web front-end developer. I help turn designs into high quality products.</p>
+        <p className="dynamic-text mt-220" >Hi, I'm Joshua, a mobile and web front-end developer. I help turn designs into high quality products. I specialise in developing <em><strong>iOS applications</strong></em> using <em><strong>swift</strong></em>.<br/><br/> 
+        I have expertise working in <em><strong>Javascript</strong></em> to develop applications in <em><strong>React Native</strong></em> and write front-end using <em><strong>React</strong></em>.<br/><br/>
+        I have also worked with <em><strong>Vapor</strong></em> to write server side logic for back-end applications. 
+        </p>
         </div>
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
+      <div className="f-1 blob-image-container">
       <Blob className="blob" />
       </div>
+    </div>
+
     </div>
     </>
   )

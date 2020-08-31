@@ -15,10 +15,26 @@
     margin-top: 15px;
 }
 
+.mt-220 {
+    margin-top: 220px;
+}
+
 .mb-15 {
     margin-bottom: 15px;
 }
 
 .d-flex {
     display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.f-1 {
+    flex: 1;
+}
+
+.pt-50 {
+    padding-top: 50px;
 }

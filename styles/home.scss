@@ -2,22 +2,6 @@
 
 $image-container-side-length: 400px;
 
-.container {
-    padding: 8px;
-    @include m-device {
-        padding-left: 24px;
-        padding-right: 24px;
-    }
-    @include l-device {
-        padding-left: 48px;
-        padding-right: 48px;
-    }
-    @include xl-device {
-        padding-left: 64px;
-        padding-right: 64px;
-    }
-}
-
 .hero-section {
     
     display: flex;
@@ -48,4 +32,38 @@ $image-container-side-length: 400px;
     text-transform: uppercase;
     border-right: 2; 
     position: absolute;
-  }
+}
+
+.blob-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blob-image {
+    border-radius: 50%; 
+    width: 65%;
+}
+
+@mixin random-blob-common-styles {
+    position: absolute; 
+    width: 500px; 
+    height: 500px;
+}
+
+.random-blob-container {
+    @include random-blob-common-styles;
+    right: 0; 
+    top: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.random-blob {
+    @include random-blob-common-styles;
+    right: -200px; 
+    top: -200px;
+}
+
+

@@ -32,7 +32,7 @@ const Header = () => {
     }
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'row' }} >
+        <div className="d-flex flex-row" >
         <header className="header">
             <div className="social-svg-container" >
                 <Link href="/">
@@ -62,9 +62,9 @@ const Header = () => {
         <div className="segmented-control-container-desktop" >
             <SegmentedControl uniqueID="desktop" index={index} setTheme={setTheme} />
         </div>
-        <div className="hamburger-menu" style={{ zIndex: 10 }}>
+        <div className="hamburger-menu" >
             <div className={`slider ${open ? '' : 'closed'}`} >
-               <div style={{ paddingTop: 50 }} />
+               <div className="pt-50" />
                <Link href="/about" ><a aria-label="about" className="mr-30 mt-15 mb-15" >About</a></Link>
                 <Link href="/works" ><a aria-label="works" className="mr-30 mb-15" >Works</a></Link>
                 <Link href="/contact" ><a aria-label="contact" className="mr-30 mb-15" >Contact</a></Link>
