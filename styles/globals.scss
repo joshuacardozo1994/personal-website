@@ -101,6 +101,7 @@ a {
   @include header-common-style;
   justify-content: space-between;
   display: flex; 
+  z-index: 1;
   @include m-device {
     display: none;
   }
