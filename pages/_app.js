@@ -19,7 +19,9 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:image" content="https://joshuacardozo.com/profile.jpg" />
         <meta property="og:url" content="https://joshuacardozo.com" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap" rel="stylesheet" />
       </Head>
       <Header />
       <Component {...pageProps}/>

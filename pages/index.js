@@ -72,7 +72,7 @@ export default function Home() {
       <RandomBlob />
       <div className="f-1" >
         <h1 className="dynamic-text salutation-text">{text}{text == (salutationBaseText + salutationFinalText) ? "" : "|"}</h1>
-        <p className="dynamic-text mt-220" >Hi, I'm Joshua, a mobile and web front-end developer. I help turn designs into high quality products. I specialise in developing <em><strong>iOS applications</strong></em> using <em><strong>swift</strong></em>.<br/><br/> 
+        <p style={{ maxWidth: '60ch' }} className="dynamic-text mt-150 fs-20" >Hi, I'm Joshua, a mobile and web front-end developer. I help turn designs into high quality products. I specialise in developing <em><strong>iOS applications</strong></em> using <em><strong>swift</strong></em>.<br/><br/> 
         I have expertise working in <em><strong>Javascript</strong></em> to develop applications in <em><strong>React Native</strong></em> and write front-end using <em><strong>React</strong></em>.<br/><br/>
         I have also worked with <em><strong>Vapor</strong></em> to write server side logic for back-end applications. 
         </p>
@@ -81,7 +81,11 @@ export default function Home() {
       <Blob className="blob" />
       </div>
     </div>
+    <div style={{ height: 500 }} >
+      <div className="dynamic-text" style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }} >My Skills</div>
+      <h1 className="dynamic-text">My Expertise</h1>
 
+    </div>
     </div>
     </>
   )
