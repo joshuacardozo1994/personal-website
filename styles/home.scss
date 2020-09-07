@@ -33,6 +33,9 @@ $image-container-side-length: 400px;
     border-right: 2; 
     position: absolute;
     font-family: 'Roboto', sans-serif;
+    @include m-device {
+        margin-top: 1em;
+    }
 }
 
 .blob-image-container {

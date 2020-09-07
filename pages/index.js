@@ -94,7 +94,7 @@ export default function Home() {
             </span>
             <h1 className="dynamic-text" style={{ display: 'inline-block', marginLeft: '0.5em' }} >iOS Development</h1>
             </div>
-            <p className="dynamic-text" style={{ marginTop: '0.5em' }}>Understand First. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p className="dynamic-text" style={{ marginTop: '0.5em' }}><strong>Understand First</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
           <div className="expertise-card" style={{ height: 300 }} />
           <div className="expertise-card" style={{ height: 300 }} />
