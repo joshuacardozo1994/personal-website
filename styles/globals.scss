@@ -10,6 +10,9 @@
   --link-text-color: #2C363F;
   --segment-background-color: #efeff0;
   --slider-background-color: white;
+  --expertise-card-background-color: white;
+  --expertise-card-box-shadow-color: rgba(0, 0, 0, 0.1);
+  --expertise-card-box-shadow-color-after: rgba(0, 0, 0, 0.3);
 }
 
 @mixin dark-theme {
@@ -21,6 +24,9 @@
   --link-text-color: #F1E9DA;
   --segment-background-color: #2b2d2f;
   --slider-background-color: #1b1b2f;
+  --expertise-card-background-color: #273036;
+  --expertise-card-box-shadow-color: rgba(255, 255, 255, 0.5);
+  --expertise-card-box-shadow-color-after: rgba(255, 255, 255, 0.8);
 }
 
 :root {
@@ -41,12 +47,13 @@
   @include dark-theme
 }
 
-* {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+*{
+  font-family: sans-serif;
+  margin: 0;
 }
 
-h1, h2 {
-  text-align: center;
+p {
+  font-family: 'Karla', sans-serif;;
 }
 
 @mixin header-common-style {
@@ -69,7 +76,7 @@ a {
 }
 
 .container {
-  padding: 8px;
+  padding: 12px;
   @include m-device {
       padding-left: 24px;
       padding-right: 24px;
@@ -112,10 +119,10 @@ a {
   height: 30px; 
 }
 
-.social-svg-container {
+.svg-container {
   width: 30px; 
   height: 30px; 
-  margin-right: 20px;
+  display: inline-block;
 }
 
 .dynamic-svg {
