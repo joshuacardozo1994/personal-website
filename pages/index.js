@@ -16,54 +16,111 @@ export default function Home() {
 
   const [text, setText] = useState("");
 
-  async function setDelayedText(text, timeout) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        if (text) {
-          setText(text)
-        }
-        resolve(text);
-      }, timeout);
-      
-    })
-  }
-
   useEffect(() => {
-    const startTextAnimation = async () => {
+    let textSetInterval = null;
 
-      const firstText = salutationBaseText + firstTextToDelete;
-      for (let i = 0; i <= firstText.length; i++) {
-        await setDelayedText(firstText.substring(0, i), 100)
-      }
+    let firstSetTimeout = null;
 
-      await setDelayedText(null, 500);
+    let secondSetTimeout = null;
 
-      for (let i = firstText.length; i >= salutationBaseText.length; i--) {
-        await setDelayedText(firstText.substring(0, i), 50)
-      }
+    let thirdSetTimeout = null;
 
-      await setDelayedText(null, 200);
+    let fourthSetTimeout = null;
 
-      const secondText = salutationBaseText + secondTextToDelete;
-      for (let i = salutationBaseText.length; i <= secondText.length; i++) {
-        await setDelayedText(secondText.substring(0, i), 100)
-      }
+    const firstAnimation = () => {
+      const fullText = salutationBaseText + firstTextToDelete;
+      let i = 0;
+      textSetInterval = setInterval(() => {
+        setText(fullText.substring(0, i))
+        if (i >= fullText.length) {
+          clearInterval(textSetInterval)
+        }
+        i += 1;
+      }, 100);
+    }
 
-      await setDelayedText(null, 500);
+    const secondAnimation = () => {
+      const fullText = salutationBaseText + firstTextToDelete;
+      let i = fullText.length
+      textSetInterval = setInterval(() => {
+        setText(fullText.substring(0, i))
+        if (i <= salutationBaseText.length) {
+          clearInterval(textSetInterval)
+        }
+        i -= 1;
+      }, 50);
+    }
 
-      for (let i = secondText.length; i >= salutationBaseText.length; i--) {
-        await setDelayedText(secondText.substring(0, i), 50)
-      }
+    const thirdAnimation = () => {
+      const fullText = salutationBaseText + secondTextToDelete;
+      let i = salutationBaseText.length;
+      textSetInterval = setInterval(() => {
+        setText(fullText.substring(0, i))
+        if (i >= fullText.length) {
+          clearInterval(textSetInterval)
+        }
+        i += 1;
+      }, 100);
+    }
 
-      await setDelayedText(null, 200);
+    const fourthAnimation = () => {
+      const fullText = salutationBaseText + secondTextToDelete;
+      let i = fullText.length;
+      textSetInterval = setInterval(() => {
+        setText(fullText.substring(0, i))
+        if (i <= salutationBaseText.length) {
+          clearInterval(textSetInterval)
+        }
+        i -= 1;
+      }, 50);
+    }
 
-      const finalText = salutationBaseText + salutationFinalText;
-      for (let i = salutationBaseText.length; i <= finalText.length; i++) {
-        await setDelayedText(finalText.substring(0, i), 100)
-      }
+    const fifthAnimation = () => {
+      const fullText = salutationBaseText + salutationFinalText
+      let i = salutationBaseText.length;
+      textSetInterval = setInterval(() => {
+        setText(fullText.substring(0, i))
+        if (i >= fullText.length) {
+          clearInterval(textSetInterval)
+        }
+        i += 1;
+      }, 100);
+    }
+
+    const startTextAnimation = () => {
+      let delay = 0
+      firstAnimation();
+
+      delay += (salutationBaseText + firstTextToDelete).length * 100 + 500;
+      firstSetTimeout = setTimeout(() => {
+        secondAnimation();
+      }, delay);
+
+      delay += (firstTextToDelete.length * 50) + 200;
+      secondSetTimeout = setTimeout(() => {
+        thirdAnimation();
+      }, delay);
+
+      delay += (secondTextToDelete.length * 100) + 500;
+      thirdSetTimeout = setTimeout(() => {
+        fourthAnimation();
+      }, delay);
+
+      delay += (secondTextToDelete.length * 50) + 200;
+      fourthSetTimeout = setTimeout(() => {
+        fifthAnimation();
+      }, delay);
 
     };
     startTextAnimation();
+    return () => {
+      clearInterval(textSetInterval)
+
+      clearTimeout(firstSetTimeout)
+      clearTimeout(secondSetTimeout)
+      clearTimeout(thirdSetTimeout)
+      clearTimeout(fourthSetTimeout)
+    }
   }, []);
 
   return (
