@@ -32,7 +32,6 @@ export default function Home() {
       let i = 0;
       textSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
-        console.log('first animation', fullText.substring(0, i))
         if (i >= fullText.length) {
           clearInterval(textSetInterval)
         }
@@ -45,7 +44,6 @@ export default function Home() {
       let i = fullText.length
       textSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
-        console.log('second animation', fullText.substring(0, i))
         if (i <= salutationBaseText.length) {
           clearInterval(textSetInterval)
         }
@@ -58,7 +56,6 @@ export default function Home() {
       let i = salutationBaseText.length;
       textSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
-        console.log('third animation', fullText.substring(0, i))
         if (i >= fullText.length) {
           clearInterval(textSetInterval)
         }
@@ -71,7 +68,6 @@ export default function Home() {
       let i = fullText.length;
       textSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
-        console.log('fourth animation', fullText.substring(0, i))
         if (i <= salutationBaseText.length) {
           clearInterval(textSetInterval)
         }
@@ -84,7 +80,6 @@ export default function Home() {
       let i = salutationBaseText.length;
       textSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
-        console.log('fifth animation', fullText.substring(0, i))
         if (i >= fullText.length) {
           clearInterval(textSetInterval)
         }
