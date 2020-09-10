@@ -17,23 +17,24 @@ export default function Home() {
   const [text, setText] = useState("");
 
   useEffect(() => {
-    let textSetInterval = null;
+    let firstSetInterval = null;
+    let secondSetInterval = null;
+    let thirdSetInterval = null;
+    let fourthSetInterval = null;
+    let fifthSetInterval = null;
 
     let firstSetTimeout = null;
-
     let secondSetTimeout = null;
-
     let thirdSetTimeout = null;
-
     let fourthSetTimeout = null;
 
     const firstAnimation = () => {
       const fullText = salutationBaseText + firstTextToDelete;
       let i = 0;
-      textSetInterval = setInterval(() => {
+      firstSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
         if (i >= fullText.length) {
-          clearInterval(textSetInterval)
+          clearInterval(firstSetInterval)
         }
         i += 1;
       }, 100);
@@ -42,10 +43,10 @@ export default function Home() {
     const secondAnimation = () => {
       const fullText = salutationBaseText + firstTextToDelete;
       let i = fullText.length
-      textSetInterval = setInterval(() => {
+      secondSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
         if (i <= salutationBaseText.length) {
-          clearInterval(textSetInterval)
+          clearInterval(secondSetInterval)
         }
         i -= 1;
       }, 50);
@@ -54,10 +55,10 @@ export default function Home() {
     const thirdAnimation = () => {
       const fullText = salutationBaseText + secondTextToDelete;
       let i = salutationBaseText.length;
-      textSetInterval = setInterval(() => {
+      thirdSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
         if (i >= fullText.length) {
-          clearInterval(textSetInterval)
+          clearInterval(thirdSetInterval)
         }
         i += 1;
       }, 100);
@@ -66,10 +67,10 @@ export default function Home() {
     const fourthAnimation = () => {
       const fullText = salutationBaseText + secondTextToDelete;
       let i = fullText.length;
-      textSetInterval = setInterval(() => {
+      fourthSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
         if (i <= salutationBaseText.length) {
-          clearInterval(textSetInterval)
+          clearInterval(fourthSetInterval)
         }
         i -= 1;
       }, 50);
@@ -78,17 +79,32 @@ export default function Home() {
     const fifthAnimation = () => {
       const fullText = salutationBaseText + salutationFinalText
       let i = salutationBaseText.length;
-      textSetInterval = setInterval(() => {
+      fifthSetInterval = setInterval(() => {
         setText(fullText.substring(0, i))
         if (i >= fullText.length) {
-          clearInterval(textSetInterval)
+          clearInterval(fifthSetInterval)
         }
         i += 1;
       }, 100);
     }
 
+    const clearTimers = () => {
+      clearInterval(firstSetInterval)
+      clearInterval(secondSetInterval)
+      clearInterval(thirdSetInterval)
+      clearInterval(fourthSetInterval)
+      clearInterval(fifthSetInterval)
+
+      clearTimeout(firstSetTimeout)
+      clearTimeout(secondSetTimeout)
+      clearTimeout(thirdSetTimeout)
+      clearTimeout(fourthSetTimeout)
+      setText(salutationBaseText + salutationFinalText)
+    }
+
     const startTextAnimation = () => {
       let delay = 0
+      clearTimers();
       firstAnimation();
 
       delay += (salutationBaseText + firstTextToDelete).length * 100 + 500;
@@ -114,12 +130,7 @@ export default function Home() {
     };
     startTextAnimation();
     return () => {
-      clearInterval(textSetInterval)
-
-      clearTimeout(firstSetTimeout)
-      clearTimeout(secondSetTimeout)
-      clearTimeout(thirdSetTimeout)
-      clearTimeout(fourthSetTimeout)
+      clearTimers()
     }
   }, []);
 

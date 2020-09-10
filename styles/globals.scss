@@ -77,17 +77,19 @@ a {
 
 .container {
   padding: 12px;
+  padding-top: calc(12px + env(safe-area-inset-top));
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
   @include m-device {
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: calc(24px + env(safe-area-inset-left));
+      padding-right: calc(24px + env(safe-area-inset-right));
   }
   @include l-device {
-      padding-left: 48px;
-      padding-right: 48px;
+      padding-left: calc(48px + env(safe-area-inset-left));
+      padding-right: calc(48px + env(safe-area-inset-right));
   }
   @include xl-device {
-      padding-left: 64px;
-      padding-right: 64px;
+      padding-left: calc(64px + env(safe-area-inset-left));
+      padding-right: calc(64px + env(safe-area-inset-right));
   }
 }
 
@@ -102,6 +104,8 @@ a {
   @include m-device {
     display: flex;
   }
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 .hamburger-menu {

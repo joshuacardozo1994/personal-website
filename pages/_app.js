@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="Mobile and front-end Developer based in Goa, India" />
         <meta name="keywords" content="Swift, iOS, JavaScript, React, NextJS, HTML, CSS" />
         <meta name="author" content="Joshua Cardozo" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /> 
         <meta property="og:title" content="Joshua Cardozo" />
         <meta property="og:description" content="Mobile and front-end Developer based in Goa, India" />
         <meta property="og:image" content="https://joshuacardozo.com/profile.jpg" />
