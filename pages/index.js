@@ -3,144 +3,18 @@ import React, { useState, useEffect } from 'react'
 import Blob from '../components/Blob'
 import RandomBlob from '../components/RandomBlob';
 import SkillCard from '../components/SkillCard';
+import SalutationText from '../components/SalutaionText';
 
 import '../styles/home.scss'
 
-const salutationBaseText = "Hey, I'm a "
-const firstTextToDelete = "front-end developer"
-const secondTextToDelete = "mobile developer"
-
-const salutationFinalText = "developer";
-
 export default function Home() {
-
-  const [text, setText] = useState("");
-
-  useEffect(() => {
-    let firstSetInterval = null;
-    let secondSetInterval = null;
-    let thirdSetInterval = null;
-    let fourthSetInterval = null;
-    let fifthSetInterval = null;
-
-    let firstSetTimeout = null;
-    let secondSetTimeout = null;
-    let thirdSetTimeout = null;
-    let fourthSetTimeout = null;
-
-    const firstAnimation = () => {
-      const fullText = salutationBaseText + firstTextToDelete;
-      let i = 0;
-      firstSetInterval = setInterval(() => {
-        setText(fullText.substring(0, i))
-        if (i >= fullText.length) {
-          clearInterval(firstSetInterval)
-        }
-        i += 1;
-      }, 100);
-    }
-
-    const secondAnimation = () => {
-      const fullText = salutationBaseText + firstTextToDelete;
-      let i = fullText.length
-      secondSetInterval = setInterval(() => {
-        setText(fullText.substring(0, i))
-        if (i <= salutationBaseText.length) {
-          clearInterval(secondSetInterval)
-        }
-        i -= 1;
-      }, 50);
-    }
-
-    const thirdAnimation = () => {
-      const fullText = salutationBaseText + secondTextToDelete;
-      let i = salutationBaseText.length;
-      thirdSetInterval = setInterval(() => {
-        setText(fullText.substring(0, i))
-        if (i >= fullText.length) {
-          clearInterval(thirdSetInterval)
-        }
-        i += 1;
-      }, 100);
-    }
-
-    const fourthAnimation = () => {
-      const fullText = salutationBaseText + secondTextToDelete;
-      let i = fullText.length;
-      fourthSetInterval = setInterval(() => {
-        setText(fullText.substring(0, i))
-        if (i <= salutationBaseText.length) {
-          clearInterval(fourthSetInterval)
-        }
-        i -= 1;
-      }, 50);
-    }
-
-    const fifthAnimation = () => {
-      const fullText = salutationBaseText + salutationFinalText
-      let i = salutationBaseText.length;
-      fifthSetInterval = setInterval(() => {
-        setText(fullText.substring(0, i))
-        if (i >= fullText.length) {
-          clearInterval(fifthSetInterval)
-        }
-        i += 1;
-      }, 100);
-    }
-
-    const clearTimers = () => {
-      clearInterval(firstSetInterval)
-      clearInterval(secondSetInterval)
-      clearInterval(thirdSetInterval)
-      clearInterval(fourthSetInterval)
-      clearInterval(fifthSetInterval)
-
-      clearTimeout(firstSetTimeout)
-      clearTimeout(secondSetTimeout)
-      clearTimeout(thirdSetTimeout)
-      clearTimeout(fourthSetTimeout)
-      setText(salutationBaseText + salutationFinalText)
-    }
-
-    const startTextAnimation = () => {
-      let delay = 0
-      clearTimers();
-      firstAnimation();
-
-      delay += (salutationBaseText + firstTextToDelete).length * 100 + 500;
-      firstSetTimeout = setTimeout(() => {
-        secondAnimation();
-      }, delay);
-
-      delay += (firstTextToDelete.length * 50) + 200;
-      secondSetTimeout = setTimeout(() => {
-        thirdAnimation();
-      }, delay);
-
-      delay += (secondTextToDelete.length * 100) + 500;
-      thirdSetTimeout = setTimeout(() => {
-        fourthAnimation();
-      }, delay);
-
-      delay += (secondTextToDelete.length * 50) + 200;
-      fourthSetTimeout = setTimeout(() => {
-        fifthAnimation();
-      }, delay);
-
-    };
-    startTextAnimation();
-    return () => {
-      clearTimers()
-    }
-  }, []);
-
   return (
     <>
     <div className="container">
     <div className="hero-section" >
       <RandomBlob />
       <div className="f-1" >
-        <h1 className="dynamic-text salutation-text">{text}{text == (salutationBaseText + salutationFinalText) ? "" : "|"}</h1>
+        <SalutationText />
         <p style={{ maxWidth: '60ch' }} className="dynamic-text mt-150 fs-20" >Hi, I'm Joshua, a mobile and web front-end developer. I help turn designs into high quality products. I specialise in developing <em><strong>iOS applications</strong></em> using <em><strong>swift</strong></em>.<br/><br/> 
         I have expertise working in <em><strong>Javascript</strong></em> to develop applications in <em><strong>React Native</strong></em> and write front-end using <em><strong>React</strong></em>.<br/><br/>
         I have also worked with <em><strong>Vapor</strong></em> to write server side logic for back-end applications. 
