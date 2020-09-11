@@ -13,6 +13,8 @@
   --expertise-card-background-color: white;
   --expertise-card-box-shadow-color: rgba(0, 0, 0, 0.1);
   --expertise-card-box-shadow-color-after: rgba(0, 0, 0, 0.3);
+
+  --footerBackground: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='50%25' x2='50%25' y1='-10.959%25' y2='100%25'%3E%3Cstop stop-color='%23aed4f4' stop-opacity='.25' offset='0%25'/%3E%3Cstop stop-color='%23aed4f4' offset='100%25'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23a)' fill-rule='evenodd' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z' transform='matrix(-1 0 0 1 1600 0)'/%3E%3C/svg%3E");
 }
 
 @mixin dark-theme {
@@ -27,6 +29,8 @@
   --expertise-card-background-color: #273036;
   --expertise-card-box-shadow-color: rgba(255, 255, 255, 0.5);
   --expertise-card-box-shadow-color-after: rgba(255, 255, 255, 0.8);
+  
+  --footerBackground: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='198'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='50%25' x2='50%25' y1='-10.959%25' y2='100%25'%3E%3Cstop stop-color='%23273036' stop-opacity='.25' offset='0%25'/%3E%3Cstop stop-color='%23273036' offset='100%25'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23a)' fill-rule='evenodd' d='M.005 121C311 121 409.898-.25 811 0c400 0 500 121 789 121v77H0s.005-48 .005-77z' transform='matrix(-1 0 0 1 1600 0)'/%3E%3C/svg%3E");
 }
 
 :root {
@@ -141,8 +145,8 @@ a {
   fill: var(--random-blob-color)
 }
 
-.dynamic-footer-blob {
-  fill: var(--footer-color)
+.dynamic-footer-wave {
+  stop-color: var(--footer-color)
 }
 
 .segmented-control-container-desktop {
@@ -154,7 +158,7 @@ a {
   }
 }
 
-.segmented-control-container-moile {
+.segmented-control-container-mobile {
   align-items: center; 
   margin-right: 20px;
   display: flex; 
@@ -237,4 +241,43 @@ a {
 	max-height: 0;
 }
 
+.ocean-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+.ocean { 
+  margin-top: 200px;
+  height: 5%;
+  width:100%;
+  position: relative;
+  bottom:0;
+  left:0;
+  background: #015871;
+  overflow: 'none'
+}
 
+.wave {
+  background: var(--footerBackground) repeat-x; 
+  position: absolute;
+  top: -178px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite;
+  // opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
