@@ -20,8 +20,6 @@ const SalutaionText = () => {
     let fourthSetTimeout = null;
 
   useEffect(() => {
-    console.log('use effect called');
-
     const firstAnimation = () => {
       const fullText = salutationBaseText + firstTextToDelete;
       let i = 0;
