@@ -1,3 +1,5 @@
+@import "./mixins.scss";
+
 @mixin light-theme-about {
     --box-shadow-btn-link: -2px -2px 5px #fff, 3px 3px 5px rgba(0, 0, 0, 0.07);
     --box-shadow-btn-link-active: inset -2px -2px 5px #fff, inset 3px 3px 5px rgba(0, 0, 0, 0.07);
@@ -35,13 +37,19 @@
     background-color: var(--about-hero-section-background-color);
     .internal-container {
         display: flex;
-        flex-direction: row;
+        @include m-device {
+          flex-direction: row;
+        }
+        flex-direction: column;
         .salutation-container {
             display:flex; 
             flex: 1; 
             flex-direction: column; 
             justify-content: center; 
-            align-items: flex-end;
+            @include m-device {
+              align-items: flex-end;
+            }
+              align-items: center;
             padding: 1em;
             .main-text {
                 font-size: 4em; 
@@ -75,12 +83,21 @@
 
 .about-me-section {
   display: flex; 
-  flex-direction: row;
+  @include m-device {
+    flex-direction: row;
+  }
+  flex-direction: column;
   margin-top: 8em;
   .about-me-header-container {
     display: flex; 
     flex: 1;
-    justify-content: flex-end; 
+    flex-direction: column; 
+      justify-content: center; 
+    @include m-device {
+      
+      justify-content: flex-end; 
+    flex-direction: row;
+    }
     align-items: center;
     .about-me-header {
       font-size: 3em;
