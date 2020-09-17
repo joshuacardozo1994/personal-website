@@ -46,10 +46,14 @@
     font-size: 20px;
 }
 
-.text-alin-center {
+.text-align-center {
     text-align: center;
 }
 
 .pt-50 {
     padding-top: 50px;
+}
+
+.max-readable-width {
+    max-width: 60ch;
 }

@@ -26,7 +26,7 @@ export default function Home() {
     </div>
     <div >
       <div className="dynamic-text" style={{ display: 'flex', justifyContent: 'center', marginTop: 20, opacity: 0.5 }} >My Skills</div>
-      <h1 className="dynamic-text text-alin-center">My Expertise</h1>
+      <h1 className="dynamic-text text-align-center">My Expertise</h1>
       <div className="grid-container">
           <SkillCard 
             backgroundColor="#FDDFDF80"

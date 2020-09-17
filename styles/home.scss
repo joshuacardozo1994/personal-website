@@ -19,7 +19,7 @@ $image-container-side-length: 400px;
 
 .image-container {
     position: absolute; 
-    width: $image-container-side-length; 
+    max-width: $image-container-side-length; 
     height: $image-container-side-length;
     display: flex;
     align-items: center;
@@ -80,6 +80,7 @@ $image-container-side-length: 400px;
     border-radius: 5px;
     -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 300px;
     
   }
   

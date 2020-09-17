@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SkillCard = ({ title, icon, description, backgroundColor }) => (
-<div className="expertise-card" style={{ height: 300 }}>
+<div className="expertise-card">
     <div style={{ display: 'flex', alignItems: 'center' }}>
         <div className="svg-container" style={{ padding: '1.5em', backgroundColor: backgroundColor, borderRadius: '1.5em' }}  >
             {icon}

@@ -243,17 +243,15 @@ a {
 
 .ocean-container {
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .ocean { 
   margin-top: 200px;
-  height: 5%;
   width:100%;
   position: relative;
   bottom:0;
   left:0;
   background: #015871;
-  overflow: 'none'
 }
 
 .wave {
@@ -270,7 +268,6 @@ a {
 .wave:nth-of-type(2) {
   top: -175px;
   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite;
-  // opacity: 1;
 }
 
 @keyframes wave {
