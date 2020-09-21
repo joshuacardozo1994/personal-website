@@ -40,7 +40,7 @@ const About = () => (
             </div>
         </div>
         <div />
-        <h1 className="dynamic-text text-align-center mt-15" >Hobbies</h1>
+        <h1 className="dynamic-text text-align-center hobby-header">Hobbies</h1>
         <div className="grid-container container"  >
             <Rotating3DCard title="Football" description="Childhood passion and favourite sport" image="url(https://images.unsplash.com/photo-1434648957308-5e6a859697e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1867&q=80)" />
             <Rotating3DCard title="Table Tennis" description="Passtime at work, and pretty decent at it" image="url(https://images.unsplash.com/photo-1511067007398-7e4b90cfa4bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2098&q=80)" />
