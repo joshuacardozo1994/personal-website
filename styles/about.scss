@@ -3,7 +3,7 @@
 @mixin light-theme-about {
     --box-shadow-btn-link: -2px -2px 5px #fff, 3px 3px 5px rgba(0, 0, 0, 0.07);
     --box-shadow-btn-link-active: inset -2px -2px 5px #fff, inset 3px 3px 5px rgba(0, 0, 0, 0.07);
-    --background-color-btn-link: #f2f3f7;
+    --background-color-btn-link: #ffffff;
     --about-hero-section-background-color: #00000015;
   }
   
@@ -136,4 +136,9 @@
 
     box-shadow: var(--box-shadow-btn-link-active);
 
+}
+
+.hobby-header {
+  font-size: 3em;
+  margin-top: 2em;
 }
