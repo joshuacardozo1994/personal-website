@@ -11,7 +11,7 @@ const About = () => (
             <div className="internal-container" >
                 <div className="salutation-container" >
                     <h1 className="dynamic-text main-text">I’m Joshua</h1>
-                    <h6 className="dynamic-text about-text">Mobile &amp; front end developer</h6>
+                    <p className="dynamic-text about-text">Mobile &amp; front end developer</p>
                 </div>
                 <div className="image-blob-container" >
                     <svg className="svg-blob" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
