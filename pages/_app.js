@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useLayoutEffect } from 'react'
 import Head from 'next/head';
 
 import '../styles/globals.scss'
@@ -10,7 +10,7 @@ const themes = ["light", "dark"];
 
 function MyApp({ Component, pageProps }) {
   
-  useEffect(() => {
+  useLayoutEffect(() => {
 		const setDefaultTheme = () => {
 			const theme = localStorage.getItem("theme")
 			if (themes.includes(theme)) {
