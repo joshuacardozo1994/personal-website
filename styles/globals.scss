@@ -101,6 +101,23 @@ a {
     color: var(--inverted-theme-color)
 }
 
+.header-container {
+  position: sticky; 
+  top: 0; 
+  z-index: 999;
+}
+
+.header-container-fake {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 30px #273036;
+  background-color: var(--theme-color);
+}
+
 .header {
   @include header-common-style;
   justify-content: space-around;

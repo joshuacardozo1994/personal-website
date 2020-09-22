@@ -12,7 +12,7 @@ const twitterLink = "https://twitter.com/joshuacardozo";
 
 const Header = () => {
     const [open, setOpen] = useState(false);
-
+    const [opacity, setOpacity] = useState(0);
     const [index, setIndex] = useState(2);
 	
 	useEffect(() => {
@@ -22,8 +22,19 @@ const Header = () => {
 				document.documentElement.setAttribute('data-theme', theme);
 				setIndex(themes.indexOf(theme))
 			}
-		};
-		setDefaultTheme();
+        };
+        function onScroll() {
+            if (window.pageYOffset < 100) {
+                setOpacity(window.pageYOffset/100)
+            } else {
+                setOpacity(1)
+            }
+        }
+        setDefaultTheme();
+        window.addEventListener('scroll', onScroll)
+        return () => {
+            window.removeEventListener('scroll', onScroll)
+        }
 	  }, []);
 
     function setTheme(value, index) {
@@ -33,12 +44,12 @@ const Header = () => {
 	}
     
     function toggleOpen(value) {
-        console.log('value', value);
         setOpen(value ? value : !open);
     }
 
     return (
-        <div className="d-flex flex-row" style={{ position: 'sticky', top: 0, zIndex: 999 }} >
+        <div className="d-flex flex-row header-container" >
+        <div className="header-container-fake" style={{ opacity }} />
         <header className="header">
             <div className="svg-container" >
                 <Link href="/">
