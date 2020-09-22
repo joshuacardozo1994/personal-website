@@ -105,6 +105,7 @@ a {
   position: sticky; 
   top: 0; 
   z-index: 999;
+  -webkit-transform: translateZ(1000px);
 }
 
 .header-container-fake {
