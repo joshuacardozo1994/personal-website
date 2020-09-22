@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import Head from 'next/head';
 
 import '../styles/globals.scss'
@@ -5,7 +6,21 @@ import '../styles/globals.scss'
 import FooterWave from '../components/FooterWave'
 import Header from '../components/Header';
 
+const themes = ["light", "dark"];
+
 function MyApp({ Component, pageProps }) {
+  
+  useEffect(() => {
+		const setDefaultTheme = () => {
+			const theme = localStorage.getItem("theme")
+			if (themes.includes(theme)) {
+				document.documentElement.setAttribute('data-theme', theme);
+			}
+        };
+        setDefaultTheme();
+	  }, []);
+
+
   return (
     <>
       <Head>

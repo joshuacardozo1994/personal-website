@@ -19,7 +19,7 @@ const Header = () => {
 		const setDefaultTheme = () => {
 			const theme = localStorage.getItem("theme")
 			if (themes.includes(theme)) {
-				document.documentElement.setAttribute('data-theme', theme);
+				// document.documentElement.setAttribute('data-theme', theme);
 				setIndex(themes.indexOf(theme))
 			}
         };
