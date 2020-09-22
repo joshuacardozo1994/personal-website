@@ -44,7 +44,7 @@ const Header = () => {
 	}
     
     function toggleOpen(value) {
-        setOpen(value ? value : !open);
+        setOpen(value != undefined ? value : !open);
     }
 
     return (
