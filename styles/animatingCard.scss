@@ -8,9 +8,8 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   transform-style: preserve-3d;
   cursor: pointer;
   display: flex;
-    align-items: center;
-    justify-content: center;
-  // background-color: #fff;
+  align-items: center;
+  justify-content: center;
   
   &:hover {
     .card-info {
@@ -22,14 +21,8 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
     .card-info, .card-info p {
       transition: 0.6s $hoverEasing;
     }
-    .card-info:after {
-      transition: 5s $hoverEasing;
-      opacity: 1;
-      transform: translateY(0);
-    }
     .card-bg {
-      transition: 
-        0.6s $hoverEasing,
+      transition: 0.6s $hoverEasing,
         opacity 5s $hoverEasing;
       opacity: 0.8;
     }
@@ -37,12 +30,7 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
       transition:
         0.6s $hoverEasing,
         box-shadow 2s $hoverEasing;
-      box-shadow:
-        rgba(white, 0.2) 0 0 40px 5px,
-        rgba(white, 1) 0 0 0 1px,
-        rgba(black, 0.66) 0 30px 60px 0,
-        inset #333 0 0 0 5px,
-        inset white 0 0 0 6px;
+        box-shadow: rgba(black, 0.66) 0 30px 60px 0,
     }
   }
 }
@@ -55,10 +43,7 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   background-color: #333;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow:
-    rgba(black, 0.66) 0 30px 60px 0,
-    inset #333 0 0 0 5px,
-    inset rgba(white, 0.5) 0 0 0 6px;
+  box-shadow: rgba(black, 0.66) 0 30px 60px 0;
   transition: 1s $returnEasing;
 }
 
@@ -91,30 +76,10 @@ $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
     text-shadow: rgba(black, 1) 0 2px 3px;
     transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-  
-  * {
-    position: relative;
-    z-index: 1;
-  }
-  
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(#000, 0.6) 100%);
-    background-blend-mode: overlay;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: 5s 1s $returnEasing;
-  }
 }
 
 .card-info h1 {
-  font-family: "Playfair Display";
-  font-size: 36px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: bold;
   text-shadow: rgba(black, 0.5) 0 10px 10px;
 }

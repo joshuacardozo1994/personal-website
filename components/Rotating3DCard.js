@@ -10,18 +10,24 @@ const Rotating3DCard = ({ image, title, description }) => {
     let mouseLeaveDelay = null;
     function handleMouseMove(e) {
         var rect = cardWrapper.current.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left - cardWrapper.current.offsetWidth/2;
-        const mouseY = e.clientY - rect.top - cardWrapper.current.offsetHeight/2;
+        const width = cardWrapper.current.offsetWidth;
+        const height = cardWrapper.current.offsetHeight;
+
+        const maxDegreeRotation = 7.5;
+        const maxTranslation = 20;
+
+        const mouseX = e.clientX - rect.left - width/2;
+        const mouseY = e.clientY - rect.top - height/2;
 
 
-        const mousePX = mouseX / cardWrapper.current.offsetWidth;
-        const mousePY = mouseY / cardWrapper.current.offsetHeight;
+        const mousePX = mouseX / (width/2);
+        const mousePY = mouseY / (height/2);
 
-        const rX = mousePX * 30;
-        const rY = mousePY * -30;
+        const rX = mousePX * maxDegreeRotation;
+        const rY = mousePY * -maxDegreeRotation;
 
-        const tX = mousePX * -40;
-        const tY = mousePY * -40;
+        const tX = mousePX * -maxTranslation;
+        const tY = mousePY * -maxTranslation;
 
         setRotation({ x: rX, y: rY })
         setTranslate({ x: tX, y: tY })
