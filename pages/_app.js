@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Head from 'next/head';
 
 import '../styles/globals.scss'
@@ -9,18 +9,36 @@ import Header from '../components/Header';
 const themes = ["light", "dark"];
 
 function MyApp({ Component, pageProps }) {
-  
-  useLayoutEffect(() => {
-		const setDefaultTheme = () => {
-			const theme = localStorage.getItem("theme")
-			if (themes.includes(theme)) {
-				document.documentElement.setAttribute('data-theme', theme);
-			}
-        };
-        setDefaultTheme();
-	  }, []);
 
+  const useComponentWillMount = func => {
+    const willMount = useRef(true);
+    if (willMount.current) {
+      func();
+    }
+    useComponentDidMount(() => {
+      willMount.current = false;
+    });
+  };
 
+  const useComponentDidMount = func => useEffect(func, []);
+
+  const setDefaultTheme = () => {
+    const theme = localStorage.getItem("theme")
+    if (themes.includes(theme)) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  };
+
+  useComponentDidMount(() => console.log("didMount"));
+
+  useComponentWillMount(() => {
+    if (process.browser) {
+      console.log("didMount")
+      setDefaultTheme();
+    }
+  });
+
+console.log('render')
   return (
     <>
       <Head>
@@ -44,5 +62,11 @@ function MyApp({ Component, pageProps }) {
     </>
   )
 }
+
+// MyApp.getInitialProps = async ctx => {
+//   return {
+//     cookie: ctx.ctx.req.headers.cookie
+//   }
+// }
 
 export default MyApp
