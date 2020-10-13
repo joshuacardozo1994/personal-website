@@ -43,7 +43,7 @@
 
 @media screen and (prefers-color-scheme: dark) {
   :root {
-  @include dark-theme
+    @include dark-theme
   }
 }
 
@@ -110,6 +110,8 @@ a {
   top: 0; 
   z-index: 999;
   -webkit-transform: translateZ(1000px);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 .header-container-fake {
@@ -130,8 +132,6 @@ a {
   @include m-device {
     display: flex;
   }
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
 }
 
 .hamburger-menu {
@@ -173,7 +173,6 @@ a {
 
 .segmented-control-container-desktop {
   align-items: center; 
-  margin-right: 20px;
   display: none; 
   @include m-device {
     display: flex;
@@ -182,7 +181,6 @@ a {
 
 .segmented-control-container-mobile {
   align-items: center; 
-  margin-right: 20px;
   display: flex; 
   @include m-device {
     display: none;

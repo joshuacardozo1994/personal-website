@@ -6,7 +6,7 @@ import '../styles/contact.scss'
 const Contact = () => (
     <div className="container contact-container" >
             <div style={{ display: 'flex', flex: 1 }} >
-                <div className="max-readable-width" style={{ display: 'flex', flexDirection: 'column', paddingBottom: '2em' }} >
+                <div className="max-readable-width" style={{ display: 'flex', flexDirection: 'column', paddingBottom: '2em', paddingLeft: '0.5em', paddingRight: '0.5em' }} >
                     <h1 className="dynamic-text mt-15" style={{ color: '#ff6961' }}>Don't be a stranger</h1>
                     <h2 className="dynamic-text mt-15">say hello.</h2>
                     <p className="dynamic-text mt-30 max-readable-width" >I'm not currently looking for any new opportunities, but if you need any assistance related to the skills I possess, feel free to get in touch.</p>
@@ -18,7 +18,7 @@ const Contact = () => (
                     </address>
                 </div>
             </div>
-            <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }} >
+            <div style={{ display: 'flex', flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingLeft: '0.5em', paddingRight: '0.5em' }} >
                 <EmailComponent />
             </div>
     </div>
