@@ -6,39 +6,7 @@ import '../styles/globals.scss'
 import FooterWave from '../components/FooterWave'
 import Header from '../components/Header';
 
-const themes = ["light", "dark"];
-
 function MyApp({ Component, pageProps }) {
-
-  const useComponentWillMount = func => {
-    const willMount = useRef(true);
-    if (willMount.current) {
-      func();
-    }
-    useComponentDidMount(() => {
-      willMount.current = false;
-    });
-  };
-
-  const useComponentDidMount = func => useEffect(func, []);
-
-  const setDefaultTheme = () => {
-    const theme = localStorage.getItem("theme")
-    if (themes.includes(theme)) {
-      document.documentElement.setAttribute('data-theme', theme);
-    }
-  };
-
-  useComponentDidMount(() => console.log("didMount"));
-
-  useComponentWillMount(() => {
-    if (process.browser) {
-      console.log("didMount")
-      setDefaultTheme();
-    }
-  });
-
-console.log('render')
   return (
     <>
       <Head>
@@ -62,11 +30,5 @@ console.log('render')
     </>
   )
 }
-
-// MyApp.getInitialProps = async ctx => {
-//   return {
-//     cookie: ctx.ctx.req.headers.cookie
-//   }
-// }
 
 export default MyApp

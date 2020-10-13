@@ -42,7 +42,9 @@
 }
 
 @media screen and (prefers-color-scheme: dark) {
+  :root {
   @include dark-theme
+  }
 }
 
 [data-theme="light"] {
