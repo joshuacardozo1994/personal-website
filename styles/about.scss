@@ -1,16 +1,12 @@
 @import "./mixins.scss";
 
 @mixin light-theme-about {
-    --box-shadow-btn-link: -2px -2px 5px #fff, 3px 3px 5px rgba(0, 0, 0, 0.07);
-    --box-shadow-btn-link-active: inset -2px -2px 5px #fff, inset 3px 3px 5px rgba(0, 0, 0, 0.07);
-    --background-color-btn-link: #ffffff;
+    
     --about-hero-section-background-color: #00000015;
   }
   
   @mixin dark-theme-about {
-    --box-shadow-btn-link: inset -2px -2px 5px rgba(0,0,0,0.5), inset 3px 3px 5px rgba(255, 255, 255, 0.07);
-    --box-shadow-btn-link-active: -2px -2px 5px rgba(0,0,0,0.5), 3px 3px 5px rgba(255, 255, 255, 0.07);
-    --background-color-btn-link: #222;
+    
     --about-hero-section-background-color: #ffffff15;
     
   }
@@ -119,23 +115,6 @@
       margin-top: 1em;
     }
   }
-}
-
-.btn-link {
-    display:inline-block; 
-    background-color: var(--background-color-btn-link);
-    padding: 1em 2em;
-    border-radius: 0.5em;
-    box-shadow: var(--box-shadow-btn-link);
-    border: none;
-    outline: none;
-    transition: 0.4s;
-}
-
-.btn-link:active {
-
-    box-shadow: var(--box-shadow-btn-link-active);
-
 }
 
 .hobby-header {

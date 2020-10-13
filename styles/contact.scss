@@ -1,0 +1,13 @@
+@import "./mixins.scss";
+
+
+.contact-container {
+    display: flex; 
+    flex-direction: row; 
+    min-height: calc(100vh - 285px);
+    padding: 2em;
+    @include m-device {
+        flex-direction: row;
+      }
+      flex-direction: column;
+}
