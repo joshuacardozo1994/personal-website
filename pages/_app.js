@@ -24,9 +24,9 @@ function MyApp({ Component, pageProps }) {
         <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
         <link href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap" rel="stylesheet" />
       </Head>
-      <Header />
+      {/* <Header /> */}
       <Component {...pageProps}/>
-      <FooterWave />
+      {/* <FooterWave /> */}
     </>
   )
 }
