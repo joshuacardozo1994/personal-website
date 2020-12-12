@@ -8,7 +8,7 @@ const twitterLink = "https://twitter.com/joshuacardozo";
 const CV = () => {
     return <div style={{ width: 'calc(100vw - 2em)', height: 'calc(100vh - 2em)', backgroundImage: 'linear-gradient(to bottom right, #053770, #1eb9d1)', padding: '1em' }} >
         <div style={{ backgroundColor: 'white', width: '100%', height: '100%', display: 'flex', flexDirection: 'row' }} >
-            <div style={{ display: 'flex', flex: 1, flexDirection: 'column', padding: '1em', fontSize: 11 }} >
+            <div style={{ display: 'flex', flex: 1, flexDirection: 'column', padding: '1em', fontSize: 12 }} >
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }} ><img src='/profile.jpg' style={{ width: 200, height: 200, borderRadius: '50%' }} /></div>
 
                 <div style={{ marginTop: '1em', width: '100%' }} >
@@ -64,7 +64,7 @@ const CV = () => {
 
 const LeftInfo = ({ mainText, info, type }) => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', fontSize: 11, width: '100%' }} >
+        <div style={{ display: 'flex', flexDirection: 'row', fontSize: 12, width: '100%' }} >
             {!!mainText && <div style={{ display: 'flex', flex: 5, lineHeight: 2 }}>
                 <strong>{mainText}</strong>
             </div>}
@@ -90,7 +90,7 @@ const WrappedComponent = ({ type, info, children }) => {
 
 const SocialLink = ({ children, url, displayText }) => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', fontSize: 11, width: '100%', marginTop: '1em' }} >
+        <div style={{ display: 'flex', flexDirection: 'row', fontSize: 12, width: '100%', marginTop: '1em' }} >
             <div style={{ display: 'flex', flex: 5, lineHeight: 2 }}>
                 <div style={{ width: '1em' }} />
                 {children}
