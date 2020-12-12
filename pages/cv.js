@@ -8,8 +8,8 @@ const twitterLink = "https://twitter.com/joshuacardozo";
 const CV = () => {
     return <div style={{ width: 'calc(100vw - 2em)', height: 'calc(100vh - 2em)', backgroundImage: 'linear-gradient(to bottom right, #053770, #1eb9d1)', padding: '1em' }} >
         <div style={{ backgroundColor: 'white', width: '100%', height: '100%', display: 'flex', flexDirection: 'row' }} >
-            <div style={{ display: 'flex', flex: 1, alignItems: 'center', flexDirection: 'column', padding: '1em' }} >
-                <img src='/profile.jpg' style={{ width: 200, height: 200, borderRadius: '50%' }} />
+            <div style={{ display: 'flex', flex: 1, flexDirection: 'column', padding: '1em', fontSize: 11 }} >
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }} ><img src='/profile.jpg' style={{ width: 200, height: 200, borderRadius: '50%' }} /></div>
 
                 <div style={{ marginTop: '1em', width: '100%' }} >
                     <LeftInfo mainText="ADDRESS" info="Grande Vanelim Colva Salcete Goa" />
@@ -32,7 +32,28 @@ const CV = () => {
                         <Twitter />
                     </SocialLink>
                 </div>
-                <strong style={{ marginTop: '1em' }} >EDUCATION</strong>
+                <strong style={{ marginTop: '2em', fontSize: 16, marginLeft: 16 }} >EDUCATION</strong>
+                <div style={{ marginLeft: 16 }} >
+                    <div style={{ marginTop: 10 }} ><strong>BE ENGiNEERING</strong></div>
+                    <div>Goa College of Engineering</div>
+                    <div>2012 - 2016</div>
+
+                    <div style={{ marginTop: 10 }} ><strong>HIGHER SECONDARY</strong></div>
+                    <div>Rosarys HSS</div>
+                    <div>2010 - 2012</div>
+
+                    <div style={{ marginTop: 10 }} ><strong>HIGH SCHOOL</strong></div>
+                    <div>MANOVIKAS HS</div>
+                    <div>2002 - 2010</div>
+                </div>
+                <strong style={{ marginTop: '2em', fontSize: 16, marginLeft: 16 }} >REFERENCES</strong>
+                <div style={{ marginLeft: 16 }} >
+                    <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
+                    <div>Gautam Naik - Designer</div>
+
+                    <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
+                    <div>Nikesh Shetye - React Native Developer</div>
+                </div>
             </div>
             <div style={{ display: 'flex', flex: 2, backgroundColor: 'green' }} >
 
