@@ -8,10 +8,10 @@ const twitterLink = "https://twitter.com/joshuacardozo";
 const CV = () => {
     return <div style={{ width: 'calc(100vw - 2em)', height: 'calc(100vh - 2em)', backgroundImage: 'linear-gradient(to bottom right, #053770, #1eb9d1)', padding: '1em' }} >
         <div style={{ backgroundColor: 'white', width: '100%', height: '100%', display: 'flex', flexDirection: 'row' }} >
-            <div style={{ display: 'flex', flex: 1, flexDirection: 'column', padding: '1em', fontSize: 12 }} >
+            <div style={{ display: 'flex', flex: 5, flexDirection: 'column', padding: '2em', fontSize: 11 }} >
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }} ><img src='/profile.jpg' style={{ width: 200, height: 200, borderRadius: '50%' }} /></div>
 
-                <div style={{ marginTop: '1em', width: '100%' }} >
+                <div style={{ marginTop: 32, width: '100%' }} >
                     <LeftInfo mainText="ADDRESS" info="Grande Vanelim Colva Salcete Goa" />
                     <LeftInfo mainText="PHONE" info="8806728818" type="phone" typ="phone" />
                     <LeftInfo mainText="EMAIL" info="joshua.cardozo@gmail.com" type="email" />
@@ -35,28 +35,72 @@ const CV = () => {
                 <strong style={{ marginTop: '2em', fontSize: 16, marginLeft: 16 }} >EDUCATION</strong>
                 <div style={{ marginLeft: 16 }} >
                     <div style={{ marginTop: 10 }} ><strong>BE ENGiNEERING</strong></div>
-                    <div>Goa College of Engineering</div>
-                    <div>2012 - 2016</div>
+                    <div style={{ color: 'gray' }} >Goa College of Engineering</div>
+                    <div style={{ color: 'gray' }} >2012 - 2016</div>
 
                     <div style={{ marginTop: 10 }} ><strong>HIGHER SECONDARY</strong></div>
-                    <div>Rosarys HSS</div>
-                    <div>2010 - 2012</div>
+                    <div style={{ color: 'gray' }} >Rosarys HSS</div>
+                    <div style={{ color: 'gray' }} >2010 - 2012</div>
 
                     <div style={{ marginTop: 10 }} ><strong>HIGH SCHOOL</strong></div>
-                    <div>MANOVIKAS HS</div>
-                    <div>2002 - 2010</div>
+                    <div style={{ color: 'gray' }} >MANOVIKAS HS</div>
+                    <div style={{ color: 'gray' }} >2002 - 2010</div>
                 </div>
                 <strong style={{ marginTop: '2em', fontSize: 16, marginLeft: 16 }} >REFERENCES</strong>
                 <div style={{ marginLeft: 16 }} >
                     <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
-                    <div>Gautam Naik - Designer</div>
+                    <a style={{ color: 'gray', fontWeight: 'normal' }} title="Website" href="https://gautamnaik.com" target="_blank" >Gautam Naik</a>
 
                     <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
-                    <div>Nikesh Shetye - React Native Developer</div>
+                    <div style={{ color: 'gray' }} >Nikesh Shetye - React Native Developer</div>
                 </div>
             </div>
-            <div style={{ display: 'flex', flex: 2, backgroundColor: 'green' }} >
+            <div style={{ display: 'flex', flex: 9, flexDirection: 'column', padding: '1em' }} >
+                <h1 style={{ textAlign: 'center', marginTop: 24, fontWeight: 'lighter', fontSize: 50 }} >JOSHUA</h1>
+                <h1 style={{ textAlign: 'center', marginTop: 5, fontWeight: 'lighter', fontSize: 50 }} >CARDOZO</h1>
+                <div style={{ textAlign: 'center', marginTop: 15, color: '#8ab1e3', fontWeight: 'lighter' }} >SOFTWARE DEVELOPER</div>
 
+                <div style={{ display: 'flex', flexDirection: 'row', paddingTop: 48 }} >
+                    <div style={{ backgroundImage: 'linear-gradient(to bottom, #053770, #1eb9d1)', width: '0.7em', height: 'calc(100% - 10px)', marginTop: 3 }} />
+                    <div style={{ display: 'flex', flexDirection: 'column' }} >
+                        <div style={{ marginLeft: 24, position: 'relative' }} >
+                            <div  style={{ position: 'absolute', backgroundColor: '#053770', width: 10, height: 10, left: -30, top: 3, borderRadius: '50%' }} />
+                            <div style={{ fontWeight: 'bold', fontSize: 15 }} >INTRODUCTION</div>
+                            <p style={{ fontSize: 12, width: '90%', marginTop: 24, color: 'gray' }} >
+                                Hi, I'm Joshua, and I'm passionate about developing software that helps empower innovation in companies and improve the value proposition of products. 
+                                As an organised and hightly creative individual, I love to find solutions to new problems and new solutions to existing problems. I enjoy working in a dynamic and fast paced working environment.
+                            </p>
+                        </div>
+                        <div style={{ marginLeft: 24, position: 'relative', marginTop: 20 }} >
+                            <div  style={{ position: 'absolute', backgroundColor: '#053770', width: 10, height: 10, left: -30, top: 3, borderRadius: '50%' }} />
+                            <div style={{ fontWeight: 'bold', fontSize: 15 }} >EXPERIENCE</div>
+
+                            <div style={{ fontWeight: 'bold', fontSize: 13, marginTop: 24 }} >WEB/MOBILE DEVELOPER | BIDCHAT</div>
+                            <div style={{ fontWeight: 'normal', fontSize: 12, marginTop: 10, color: 'gray' }} >March 2017 - present</div>
+                            <p style={{ fontSize: 12, width: '90%', marginTop: 12, color: 'gray' }} >
+                                Hi, I'm Joshua, and I'm passionate about developing software that helps empower innovation in companies and improve the value proposition of products. 
+                                As an organised and hightly creative individual, I love to find solutions to new problems and new solutions to existing problems. I enjoy working in a dynamic and fast paced working environment.
+                            </p>
+
+                            <div style={{ fontWeight: 'bold', fontSize: 13, marginTop: 24 }} >IOS DEVELOPER | GENORA</div>
+                            <div style={{ fontWeight: 'normal', fontSize: 12, marginTop: 10, color: 'gray' }} >AUGUST 2016 - March 2017</div>
+                            <p style={{ fontSize: 12, width: '90%', marginTop: 12, color: 'gray' }} >
+                                Hi, I'm Joshua, and I'm passionate about developing software that helps empower innovation in companies and improve the value proposition of products. 
+                                As an organised and hightly creative individual, I love to find solutions to new problems and new solutions to existing problems. I enjoy working in a dynamic and fast paced working environment.
+                            </p>
+                        </div>
+                        <div style={{ marginLeft: 24, position: 'relative', marginTop: 20 }} >
+                            <div  style={{ position: 'absolute', backgroundColor: '#053770', width: 10, height: 10, left: -30, top: 3, borderRadius: '50%' }} />
+                            <div style={{ fontWeight: 'bold', fontSize: 15 }} >SKILLS</div>
+                            <div style={{ marginTop: 16 }} >
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block" }} >Javascript</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block" }} >HTML/CSS</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block" }} >Swift/Objective C</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block" }} >UIKit/SwiftUI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -64,11 +108,11 @@ const CV = () => {
 
 const LeftInfo = ({ mainText, info, type }) => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', fontSize: 12, width: '100%' }} >
+        <div style={{ display: 'flex', flexDirection: 'row', fontSize: 11, width: '100%' }} >
             {!!mainText && <div style={{ display: 'flex', flex: 5, lineHeight: 2 }}>
                 <strong>{mainText}</strong>
             </div>}
-            <div style={{ display: 'flex', flex: 7, lineHeight: 2 }}>
+            <div style={{ display: 'flex', flex: 7, lineHeight: 2, color: 'gray' }}>
                 <WrappedComponent type={type} info={info} >{info}</ WrappedComponent>
             </div>
         </div>
@@ -78,11 +122,11 @@ const LeftInfo = ({ mainText, info, type }) => {
 const WrappedComponent = ({ type, info, children }) => {
     switch (type) {
         case "url":
-            return <a style={{ color: 'black', fontWeight: 'normal' }} title="Website" href={`https://${info}`} target="_blank" >{children}</a>
+            return <a style={{ color: 'gray', fontWeight: 'normal' }} title="Website" href={`https://${info}`} target="_blank" >{children}</a>
         case "email":
-            return <a style={{ color: 'black', fontWeight: 'normal' }} title="Email" href="mailto:joshua.cardozo@gmail.com" target="_blank" >{children}</a>
+            return <a style={{ color: 'gray', fontWeight: 'normal' }} title="Email" href="mailto:joshua.cardozo@gmail.com" target="_blank" >{children}</a>
         case "phone":
-            return <a style={{ color: 'black', fontWeight: 'normal' }} title="Phone" href="tel:+918806728818" target="_blank" >{children}</a>
+            return <a style={{ color: 'gray', fontWeight: 'normal' }} title="Phone" href="tel:+918806728818" target="_blank" >{children}</a>
         default:
             return info
     }
@@ -90,13 +134,13 @@ const WrappedComponent = ({ type, info, children }) => {
 
 const SocialLink = ({ children, url, displayText }) => {
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', fontSize: 12, width: '100%', marginTop: '1em' }} >
+        <div style={{ display: 'flex', flexDirection: 'row', fontSize: 11, width: '100%', marginTop: '1em' }} >
             <div style={{ display: 'flex', flex: 5, lineHeight: 2 }}>
                 <div style={{ width: '1em' }} />
                 {children}
             </div>
             <div style={{ display: 'flex', flex: 7, lineHeight: 2 }}>
-                <a style={{ color: 'black', fontWeight: 'normal' }} title="Social Link" href={url} target="_blank" >{displayText}</a>
+                <a style={{ color: 'gray', fontWeight: 'normal' }} title="Social Link" href={url} target="_blank" >{displayText}</a>
             </div>
         </div>
     )
