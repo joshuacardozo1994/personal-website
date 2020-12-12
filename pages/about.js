@@ -33,7 +33,7 @@ const About = () => (
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         <div className="about-me-link-container" >
                             <Link href="/works"><a className="btn-link">View Works</a></Link>
-                            <a className="btn-link">Download CV</a>
+                            <a href="/CV.pdf" className="btn-link" download="Joshua Cardozo - CV">Download CV</a>
                         </div>
                     </div>
                 </div>
