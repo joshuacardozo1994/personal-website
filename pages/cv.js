@@ -56,9 +56,9 @@ const CV = () => {
                 </div>
             </div>
             <div style={{ display: 'flex', flex: 9, flexDirection: 'column', padding: '1em' }} >
-                <h1 style={{ textAlign: 'center', marginTop: 24, fontWeight: 'light', fontSize: 50, fontFamily: 'Roboto' }} >JOSHUA</h1>
-                <h1 style={{ textAlign: 'center', marginTop: 5, fontWeight: 'light', fontSize: 50, fontFamily: 'Roboto' }} >CARDOZO</h1>
-                <div style={{ textAlign: 'center', marginTop: 15, color: '#8ab1e3', fontWeight: 'light', fontFamily: 'Roboto' }} >SOFTWARE DEVELOPER</div>
+                <h1 style={{ textAlign: 'center', marginTop: 24, fontWeight: 'light', fontSize: 50 }} >JOSHUA</h1>
+                <h1 style={{ textAlign: 'center', marginTop: 5, fontWeight: 'light', fontSize: 50 }} >CARDOZO</h1>
+                <div style={{ textAlign: 'center', marginTop: 15, color: '#8ab1e3', fontWeight: 'normal' }} >SOFTWARE DEVELOPER</div>
 
                 <div style={{ display: 'flex', flexDirection: 'row', paddingTop: 48 }} >
                     <div style={{ backgroundImage: 'linear-gradient(to bottom, #053770, #1eb9d1)', width: '0.7em', height: 'calc(100% - 10px)', marginTop: 3 }} />
