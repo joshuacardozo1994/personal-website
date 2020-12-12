@@ -6,7 +6,7 @@ const instagramLink = "https://www.instagram.com/joshuajcardozo/";
 const twitterLink = "https://twitter.com/joshuacardozo";
 
 const CV = () => {
-    return <div style={{ width: 'calc(100vw - 2em)', height: 'calc(100vh - 2em)', backgroundImage: 'linear-gradient(to bottom right, #053770, #1eb9d1)', padding: '1em' }} >
+    return <div style={{ width: 'calc(100vw - 2em)', height: 'calc(100vh - 2em)', backgroundImage: 'linear-gradient(to bottom right, #053770, #1eb9d1)', padding: '1em', fontFamily: 'Karla' }} >
         <div style={{ backgroundColor: 'white', width: '100%', height: '100%', display: 'flex', flexDirection: 'row' }} >
             <div style={{ display: 'flex', flex: 5, flexDirection: 'column', padding: '2em', fontSize: 11 }} >
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }} ><img src='/profile.jpg' style={{ width: 200, height: 200, borderRadius: '50%' }} /></div>
@@ -49,16 +49,16 @@ const CV = () => {
                 <strong style={{ marginTop: '2em', fontSize: 16, marginLeft: 16 }} >REFERENCES</strong>
                 <div style={{ marginLeft: 16 }} >
                     <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
-                    <a style={{ color: 'gray', fontWeight: 'normal' }} title="Website" href="https://gautamnaik.com" target="_blank" >Gautam Naik</a>
+                    <a style={{ color: 'gray', fontWeight: 'normal' }} title="Website" href="https://gautamnaik.com" target="_blank" >Gautam Naik - UI/UX Designer</a>
 
                     <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
                     <div style={{ color: 'gray' }} >Nikesh Shetye - React Native Developer</div>
                 </div>
             </div>
             <div style={{ display: 'flex', flex: 9, flexDirection: 'column', padding: '1em' }} >
-                <h1 style={{ textAlign: 'center', marginTop: 24, fontWeight: 'lighter', fontSize: 50 }} >JOSHUA</h1>
-                <h1 style={{ textAlign: 'center', marginTop: 5, fontWeight: 'lighter', fontSize: 50 }} >CARDOZO</h1>
-                <div style={{ textAlign: 'center', marginTop: 15, color: '#8ab1e3', fontWeight: 'lighter' }} >SOFTWARE DEVELOPER</div>
+                <h1 style={{ textAlign: 'center', marginTop: 24, fontWeight: 'light', fontSize: 50, fontFamily: 'Roboto' }} >JOSHUA</h1>
+                <h1 style={{ textAlign: 'center', marginTop: 5, fontWeight: 'light', fontSize: 50, fontFamily: 'Roboto' }} >CARDOZO</h1>
+                <div style={{ textAlign: 'center', marginTop: 15, color: '#8ab1e3', fontWeight: 'light', fontFamily: 'Roboto' }} >SOFTWARE DEVELOPER</div>
 
                 <div style={{ display: 'flex', flexDirection: 'row', paddingTop: 48 }} >
                     <div style={{ backgroundImage: 'linear-gradient(to bottom, #053770, #1eb9d1)', width: '0.7em', height: 'calc(100% - 10px)', marginTop: 3 }} />
@@ -78,25 +78,31 @@ const CV = () => {
                             <div style={{ fontWeight: 'bold', fontSize: 13, marginTop: 24 }} >WEB/MOBILE DEVELOPER | BIDCHAT</div>
                             <div style={{ fontWeight: 'normal', fontSize: 12, marginTop: 10, color: 'gray' }} >March 2017 - present</div>
                             <p style={{ fontSize: 12, width: '90%', marginTop: 12, color: 'gray' }} >
-                                Hi, I'm Joshua, and I'm passionate about developing software that helps empower innovation in companies and improve the value proposition of products. 
-                                As an organised and hightly creative individual, I love to find solutions to new problems and new solutions to existing problems. I enjoy working in a dynamic and fast paced working environment.
+                                Worked closely with my fellow team mates to develop an animation plugin for an existing app in swift for iOS, developed a podcast app that plays audio using UIKit. 
+                                Subsequently worked in react native to develop and upload apps to the app store and play store. 
+                                Worked in react and NextJS to develop website that render both on client as well as server.
                             </p>
 
                             <div style={{ fontWeight: 'bold', fontSize: 13, marginTop: 24 }} >IOS DEVELOPER | GENORA</div>
                             <div style={{ fontWeight: 'normal', fontSize: 12, marginTop: 10, color: 'gray' }} >AUGUST 2016 - March 2017</div>
                             <p style={{ fontSize: 12, width: '90%', marginTop: 12, color: 'gray' }} >
-                                Hi, I'm Joshua, and I'm passionate about developing software that helps empower innovation in companies and improve the value proposition of products. 
-                                As an organised and hightly creative individual, I love to find solutions to new problems and new solutions to existing problems. I enjoy working in a dynamic and fast paced working environment.
+                                Worked on a quiz app where users had to predict the answer as being above or below a certain value, developed using UIKit. 
+                                Developed on an app for a client to internall handle freight transportation. 
+                                Worked on a wellness app for people with anxieties.
                             </p>
                         </div>
                         <div style={{ marginLeft: 24, position: 'relative', marginTop: 20 }} >
                             <div  style={{ position: 'absolute', backgroundColor: '#053770', width: 10, height: 10, left: -30, top: 3, borderRadius: '50%' }} />
                             <div style={{ fontWeight: 'bold', fontSize: 15 }} >SKILLS</div>
                             <div style={{ marginTop: 16 }} >
-                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block" }} >Javascript</span>
-                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block" }} >HTML/CSS</span>
-                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block" }} >Swift/Objective C</span>
-                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block" }} >UIKit/SwiftUI</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block", padding: 8, borderRadius: 4, border: '1px lightgray solid' }} >Javascript</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block", padding: 8, borderRadius: 4, border: '1px lightgray solid' }} >HTML/CSS</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block", padding: 8, borderRadius: 4, border: '1px lightgray solid' }} >Swift</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block", padding: 8, borderRadius: 4, border: '1px lightgray solid' }} >Objective-C</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block", padding: 8, borderRadius: 4, border: '1px lightgray solid' }} >UIKit</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block", padding: 8, borderRadius: 4, border: '1px lightgray solid' }} >SwiftUI</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block", padding: 8, borderRadius: 4, border: '1px lightgray solid' }} >React</span>
+                                <span style={{ fontSize: 12, color: 'gray', margin: 8, display: "inline-block", padding: 8, borderRadius: 4, border: '1px lightgray solid' }} >nextJS</span>
                             </div>
                         </div>
                     </div>
