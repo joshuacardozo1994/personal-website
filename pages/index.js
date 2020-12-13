@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react';
+import Head from 'next/head';
 
 import Blob from '../components/Blob'
 import RandomBlob from '../components/RandomBlob';
@@ -10,6 +11,9 @@ import '../styles/home.scss'
 export default function Home() {
   return (
     <>
+    <Head>
+      <meta name="description" content="Hi, I'm Joshua, a mobile and front-end Developer based in Goa, India" />
+    </Head>
     <div className="container">
     <div className="hero-section" >
       <RandomBlob />

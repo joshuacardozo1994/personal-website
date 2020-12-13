@@ -11,7 +11,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Joshua Cardozo</title>
-        <meta name="description" content="Mobile and front-end Developer based in Goa, India" />
         <meta name="keywords" content="Swift, iOS, JavaScript, React, NextJS, HTML, CSS" />
         <meta name="author" content="Joshua Cardozo" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /> 

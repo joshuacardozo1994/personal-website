@@ -1,9 +1,15 @@
 import React from 'react';
+import Head from 'next/head';
+
 import EmailComponent from '../components/EmailComponent'
 
 import '../styles/contact.scss'
 
 const Contact = () => (
+    <>
+    <Head>
+      <meta name="description" content="My DM's are always open on my social profiles, feel free to contact me on my email and phone number as well." />
+    </Head>
     <div className="container contact-container" >
             <div style={{ display: 'flex', flex: 1 }} >
                 <div className="max-readable-width" style={{ display: 'flex', flexDirection: 'column', paddingBottom: '2em', paddingLeft: '0.5em', paddingRight: '0.5em' }} >
@@ -22,6 +28,7 @@ const Contact = () => (
                 <EmailComponent />
             </div>
     </div>
+    </>
 )
 
 export default Contact;

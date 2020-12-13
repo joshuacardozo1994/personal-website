@@ -1,11 +1,16 @@
 import React from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
+import Head from 'next/head';
 
 import Rotating3DCard from '../components/Rotating3DCard';
 
 import '../styles/about.scss'
 
 const About = () => (
+    <>
+    <Head>
+      <meta name="description" content="I am a software engineer by profession, I write UI and logic for web and mobile apps, I love solving problems" />
+    </Head>
     <div >
         <div className="container about-hero-section-container"  >
             <div className="internal-container" >
@@ -29,8 +34,11 @@ const About = () => (
                 <div className="about-me-description-container" >
                     <div>
                         <p className="dynamic-text max-readable-width" >
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br/><br/> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            I am a software engineer by profession, I write UI and logic for web and mobile apps. Majority of my knowledge has been assimilated from online sources like Udemy, YouTube and Twitter.<br /><br />
+                            I love solving problems that I experience daily, in my experience that’s the fastest way to learn, as there is in emotional investment. 
+                            The projects that I loved to work on were those that had little to no documentation, the thrill of exploring uncharted territories and trying out things you wouldn’t get to try otherwise, always give me great satisfaction and a sense of pride.<br /><br />
+                            The technologies that I like to work on are iOS and HTML/css, using core frameworks with no external libraries helps sharpen my skills and gives new perspective on solving existing problems.
+                        </p>
                         <div className="about-me-link-container" >
                             <Link href="/works"><a className="btn-link">View Works</a></Link>
                             <a href="/cv.pdf" className="btn-link" download="Joshua Cardozo - CV">Download CV</a>
@@ -49,6 +57,7 @@ const About = () => (
         </div>
         
     </div>
+    </>
     
 )
 
