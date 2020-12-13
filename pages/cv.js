@@ -32,28 +32,26 @@ const CV = () => {
                         <Twitter />
                     </SocialLink>
                 </div>
-                <strong style={{ marginTop: '2em', fontSize: 16, marginLeft: 16 }} >EDUCATION</strong>
-                <div style={{ marginLeft: 16 }} >
-                    <div style={{ marginTop: 10 }} ><strong>BE ENGiNEERING</strong></div>
-                    <div style={{ color: 'gray' }} >Goa College of Engineering</div>
-                    <div style={{ color: 'gray' }} >2012 - 2016</div>
+                <strong style={{ marginTop: '2em', fontSize: 16 }} >EDUCATION</strong>
 
-                    <div style={{ marginTop: 10 }} ><strong>HIGHER SECONDARY</strong></div>
-                    <div style={{ color: 'gray' }} >Rosarys HSS</div>
-                    <div style={{ color: 'gray' }} >2010 - 2012</div>
+                <div style={{ marginTop: 10 }} ><strong>BE ENGiNEERING</strong></div>
+                <div style={{ color: 'gray' }} >Goa College of Engineering</div>
+                <div style={{ color: 'gray' }} >2012 - 2016</div>
 
-                    <div style={{ marginTop: 10 }} ><strong>HIGH SCHOOL</strong></div>
-                    <div style={{ color: 'gray' }} >MANOVIKAS HS</div>
-                    <div style={{ color: 'gray' }} >2002 - 2010</div>
-                </div>
-                <strong style={{ marginTop: '2em', fontSize: 16, marginLeft: 16 }} >REFERENCES</strong>
-                <div style={{ marginLeft: 16 }} >
-                    <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
-                    <a style={{ color: 'gray', fontWeight: 'normal' }} title="Website" href="https://gautamnaik.com" target="_blank" >Gautam Naik - UI/UX Designer</a>
+                <div style={{ marginTop: 10 }} ><strong>HIGHER SECONDARY</strong></div>
+                <div style={{ color: 'gray' }} >Rosarys HSS</div>
+                <div style={{ color: 'gray' }} >2010 - 2012</div>
 
-                    <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
-                    <div style={{ color: 'gray' }} >Nikesh Shetye - React Native Developer</div>
-                </div>
+                <div style={{ marginTop: 10 }} ><strong>HIGH SCHOOL</strong></div>
+                <div style={{ color: 'gray' }} >MANOVIKAS HS</div>
+                <div style={{ color: 'gray' }} >2002 - 2010</div>
+
+                <strong style={{ marginTop: '2em', fontSize: 16 }} >REFERENCES</strong>
+                <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
+                <a style={{ color: 'gray', fontWeight: 'normal' }} title="Website" href="https://gautamnaik.com" target="_blank" >Gautam Naik - UI/UX Designer</a>
+
+                <div style={{ marginTop: 10 }} ><strong>BIDCHAT</strong></div>
+                <div style={{ color: 'gray' }} >Nikesh Shetye - React Native Developer</div>
             </div>
             <div style={{ display: 'flex', flex: 9, flexDirection: 'column', padding: '1em' }} >
                 <h1 style={{ textAlign: 'center', marginTop: 24, fontWeight: 'light', fontSize: 50 }} >JOSHUA</h1>
