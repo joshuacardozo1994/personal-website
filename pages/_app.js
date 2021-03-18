@@ -21,7 +21,19 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
-        <link href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap" rel="stylesheet" />
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap"
+          as="style"
+          onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap"
+            rel="stylesheet"
+            type="text/css"
+          />
+        </noscript>
       </Head>
       <Header />
       <Component {...pageProps}/>
