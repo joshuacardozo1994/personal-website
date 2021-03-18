@@ -6,8 +6,6 @@ import RandomBlob from '../components/RandomBlob';
 import SkillCard from '../components/SkillCard';
 import SalutationText from '../components/SalutaionText';
 
-import '../styles/home.scss'
-
 export default function Home() {
   return (
     <>

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import '../styles/segmented-control.scss'
-
 const SegmentedControl = ({ uniqueID, index, setTheme }) => {
     
     return (

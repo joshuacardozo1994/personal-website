@@ -2,6 +2,11 @@ import React, { useEffect, useRef } from 'react'
 import Head from 'next/head';
 
 import '../styles/globals.scss'
+import '../styles/segmented-control.scss'
+import '../styles/home.scss'
+import '../styles/animatingCard.scss'
+import '../styles/about.scss'
+import '../styles/contact.scss'
 
 import FooterWave from '../components/FooterWave'
 import Header from '../components/Header';

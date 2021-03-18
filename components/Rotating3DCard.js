@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-import '../styles/animatingCard.scss'
+
 
 const Rotating3DCard = ({ image, title, description }) => {
     const cardWrapper = useRef(null);

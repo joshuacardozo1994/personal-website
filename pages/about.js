@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 import Rotating3DCard from '../components/Rotating3DCard';
 
-import '../styles/about.scss'
+
 
 const About = () => (
     <>

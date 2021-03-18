@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import EmailComponent from '../components/EmailComponent'
 
-import '../styles/contact.scss'
+
 
 const Contact = () => (
     <>
