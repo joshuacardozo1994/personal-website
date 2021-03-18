@@ -21,18 +21,11 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap"
-          as="style"
-          onload="this.onload=null;this.rel='stylesheet'"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap" />
+        <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap" />
         <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap"
-            rel="stylesheet"
-            type="text/css"
-          />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla&family=Roboto:wght@700&display=swap"/>
         </noscript>
       </Head>
       <Header />
