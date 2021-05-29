@@ -6,6 +6,8 @@ import RandomBlob from '../components/RandomBlob';
 import SkillCard from '../components/SkillCard';
 import SalutationText from '../components/SalutaionText';
 
+import Styles from '../styles/home.module.scss'
+
 export default function Home() {
   return (
     <>
@@ -13,7 +15,7 @@ export default function Home() {
       <meta name="description" content="Hi, I'm Joshua, a mobile and front-end Developer based in Goa, India" />
     </Head>
     <div className="container">
-    <div className="hero-section" >
+    <div className={Styles['hero-section']}>
       <RandomBlob />
       <div className="f-1" >
         <SalutationText />
@@ -22,8 +24,8 @@ export default function Home() {
         I have also worked with <em><strong>Vapor</strong></em> to write server side logic for back-end applications. 
         </p>
         </div>
-      <div className="f-1 blob-image-container">
-      <Blob className="blob" />
+      <div className={`f-1 ${Styles['blob-image-container']}`}>
+      <Blob className={Styles.blob} />
       </div>
     </div>
     <div >

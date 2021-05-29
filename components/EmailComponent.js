@@ -13,10 +13,6 @@ const EmailComponent = () => {
         const formattedText = `${text.replace(/[\r\n]/g, '%0D%0A')}  %0D%0A%0D%0A -${name}`
         setFormattedMessage(formattedText)
     }
-
-    console.log('name', name)
-    console.log('subject', subject)
-    console.log('message', message)
     return (
         <form>
             <input value={name} onChange={e => setName(e.target.value)} className="dynamic-text" placeholder="Name" type="text" />

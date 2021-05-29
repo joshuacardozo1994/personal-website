@@ -5,6 +5,8 @@ const firstTextToDelete = "front-end developer"
 const secondTextToDelete = "mobile developer"
 const salutationFinalText = "developer";
 
+import Styles from '../styles/home.module.scss'
+
 const SalutaionText = () => {
     const [text, setText] = useState("");
 
@@ -133,7 +135,7 @@ const SalutaionText = () => {
   }, []);
 
   return (
-    <h1 className="dynamic-text salutation-text">{text}{text == (salutationBaseText + salutationFinalText) ? "" : "|"}</h1>
+    <h1 className={`dynamic-text ${Styles['salutation-text']}`}>{text}{text == (salutationBaseText + salutationFinalText) ? "" : "|"}</h1>
   )
 }
 

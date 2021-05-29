@@ -110,11 +110,3 @@ $image-container-side-length: 400px;
       opacity: 1;
   }
 
-.grid-container {
-    display: grid;
-    padding-top: 2em;
-    grid-gap: 2em;
-    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
-    padding: 2em;
-}
-

@@ -1,34 +1,5 @@
 @import "./mixins.scss";
 
-@mixin light-theme-about {
-    
-    --about-hero-section-background-color: #00000015;
-  }
-  
-  @mixin dark-theme-about {
-    
-    --about-hero-section-background-color: #ffffff15;
-    
-  }
-  
-  :root {
-    @include light-theme-about
-  }
-  
-  @media screen and (prefers-color-scheme: dark) {
-    :root {
-      @include dark-theme-about
-    }
-  }
-  
-  [data-theme="light"] {
-    @include light-theme-about
-  }
-  
-  [data-theme="dark"] {
-    @include dark-theme-about
-  }
-
 .about-hero-section-container {
     background-color: var(--about-hero-section-background-color);
     .internal-container {

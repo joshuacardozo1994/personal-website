@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-
+import Styles from '../styles/animatingCard.module.scss'
 
 const Rotating3DCard = ({ image, title, description }) => {
     const cardWrapper = useRef(null);
@@ -54,10 +54,10 @@ const Rotating3DCard = ({ image, title, description }) => {
         };
     }, [])
     return (
-        <div ref={cardWrapper} className="card-wrap"  >
-            <div ref={card} style={{ transform: `rotateY(${rotation.x}deg) rotateX(${rotation.y}deg)` }}  className="card" >
-                <div className="card-bg" style={{ transform: `translateX(${translate.x}px) translateY(${translate.y}px)`, backgroundImage: image }}></div>
-                <div className="card-info">
+        <div ref={cardWrapper} className={Styles['card-wrap']}  >
+            <div ref={card} style={{ transform: `rotateY(${rotation.x}deg) rotateX(${rotation.y}deg)` }}  className={Styles.card} >
+                <div className={Styles['card-bg']} style={{ transform: `translateX(${translate.x}px) translateY(${translate.y}px)`, backgroundImage: image }}></div>
+                <div className={Styles['card-info']}>
                 <h1>{title}</h1>
                 <p>{description}</p>
                 </div>
