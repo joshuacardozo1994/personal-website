@@ -44,13 +44,13 @@ const Rotating3DCard = ({ image, title, description }) => {
           }, 300);
     }
     useEffect(() => {
-        cardWrapper.current.addEventListener('mousemove', handleMouseMove)
-        cardWrapper.current.addEventListener('mouseenter', handleMouseEnter)
-        cardWrapper.current.addEventListener('mouseleave', handleMouseLeave)
+        cardWrapper?.current?.addEventListener('mousemove', handleMouseMove)
+        cardWrapper?.current?.addEventListener('mouseenter', handleMouseEnter)
+        cardWrapper?.current?.addEventListener('mouseleave', handleMouseLeave)
         return () => {
-            cardWrapper.current.removeEventListener('mousemove', handleMouseMove)
-            cardWrapper.current.removeEventListener('mouseenter', handleMouseEnter)
-            cardWrapper.current.removeEventListener('mouseleave', handleMouseLeave)
+            cardWrapper?.current?.removeEventListener('mousemove', handleMouseMove)
+            cardWrapper?.current?.removeEventListener('mouseenter', handleMouseEnter)
+            cardWrapper?.current?.removeEventListener('mouseleave', handleMouseLeave)
         };
     }, [])
     return (

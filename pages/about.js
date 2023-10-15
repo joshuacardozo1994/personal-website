@@ -40,7 +40,7 @@ const About = () => (
                             The technologies that I like to work on are iOS and HTML/css, using core frameworks with no external libraries helps sharpen my skills and gives new perspective on solving existing problems.
                         </p>
                         <div className={Styles['about-me-link-container']} >
-                            <Link href="/works"><a className="btn-link">View Works</a></Link>
+                            <Link href="/works"><span className="btn-link">View Works</span></Link>
                             <a href="/cv.pdf" className="btn-link" download="Joshua Cardozo - CV">Download CV</a>
                         </div>
                     </div>
