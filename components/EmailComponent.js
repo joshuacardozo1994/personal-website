@@ -16,8 +16,8 @@ const EmailComponent = () => {
     return (
         <form>
             <input value={name} onChange={e => setName(e.target.value)} className="dynamic-text" placeholder="Name" type="text" />
-            <input value={subject} onChange={e => setSubject(e.target.value)} placeholder="Subject" type="text" />
-            <textarea value={message} onChange={formatMessageForLineBreaks} placeholder="Message" />
+            <input value={subject} onChange={e => setSubject(e.target.value)} className="dynamic-text" placeholder="Subject" type="text" />
+            <textarea value={message} onChange={formatMessageForLineBreaks} className="dynamic-text" placeholder="Message" />
             <a href={`mailto:joshua.cardozo@gmail.com?subject=${subject}&body=${formattedMessage}`} className="btn-link" style={{ marginTop: '1em' }} >Send Email</a>
         </form>
     )
