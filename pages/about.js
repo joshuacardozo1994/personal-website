@@ -41,7 +41,7 @@ const About = () => (
                         </p>
                         <div className={Styles['about-me-link-container']} >
                             <Link href="/works"><span className="btn-link">View Works</span></Link>
-                            <a href="/cv.pdf" className="btn-link" download="Joshua Cardozo - CV">Download CV</a>
+                            <a href="/Joshua%20Cardozo%20CV.pdf" className="btn-link" download="Joshua Cardozo - CV">Download CV</a>
                         </div>
                     </div>
                 </div>
