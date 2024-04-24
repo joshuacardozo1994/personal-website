@@ -43,6 +43,17 @@ export default function PrivacyPolicy() {
             <h2>Data Security</h2>
             <p>We use a variety of security measures, including encryption and authentication tools, to help protect and maintain security, integrity, and availability of your information.</p>
 
+            <h2>Privacy Settings and Data Export</h2>
+            <p>We provide you with the ability to adjust and control the privacy settings on your account at any time. This includes settings that allow you to determine how your personal information is collected, used, and shared. You can access these settings directly within your account interface.</p>
+            <p>In addition, you have the right to export your personal data from our servers. If you wish to receive an export of all the personal data that we hold about you, please contact us at [Contact Email/Phone]. We will provide you with a copy of your data in a structured, commonly used, and machine-readable format.</p>
+
+            <h2>Data Retention</h2>
+            <p>The duration for which we keep your personal data is not specified explicitly as it depends on the nature of the data and our legal and regulatory obligations. We retain personal information for as long as necessary to fulfill the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements. To determine the appropriate retention period for personal data, we consider the amount, nature, and sensitivity of the personal data, the potential risk of harm from unauthorized use or disclosure of your personal data, the purposes for which we process your personal data and whether we can achieve those purposes through other means, and the applicable legal requirements.</p>
+
+            <h2>Data Security</h2>
+            <p>We are committed to ensuring that your information is secure. To prevent unauthorized access or disclosure, we have put in place suitable physical, electronic, and managerial procedures to safeguard and secure the information we collect online. All personal data is stored securely, for example in encrypted databases or using secure cloud storage solutions.</p>
+
+
             <h2>Changes to This Privacy Policy</h2>
             <p>We may update this Privacy Policy to reflect changes to our information practices. If we make any material changes, we will notify you by email (sent to the e-mail address specified in your account) or by means of a notice on this website prior to the change becoming effective.</p>
 
