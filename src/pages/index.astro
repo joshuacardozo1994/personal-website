@@ -32,21 +32,62 @@ try {
 ---
 <Base layout="wide" description="Joshua Cardozo — mobile + web engineer in Goa. Currently building iOS apps and tinkering with AI agents.">
   <section class="hero">
-    <p class="kicker mono">jc · goa, india · 2026</p>
-    <h1>
-      I build things <span class="accent">people prod with their thumb</span> —
-      iOS apps, sometimes the web around them, and lately, agents that hold a thought longer than I can.
-    </h1>
-    <p class="lede muted">
-      Software engineer. Most days that means SwiftUI. Other days it means staring at a token stream
-      until it makes sense. This is where I keep the receipts.
-    </p>
-    <div class="cta-row">
-      <a class="link" href="/work">Recent work</a>
-      <a class="link" href="/writing">Writing</a>
-      <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a>
-      <a class="link" href="mailto:joshua.cardozo@gmail.com">Email</a>
+    <div class="hero-main">
+      <p class="kicker mono">jc · goa, india · 2026</p>
+      <h1>
+        I build things <span class="accent">people prod with their thumb</span> —
+        iOS apps, sometimes the web around them, and lately, agents that hold a thought longer than I can.
+      </h1>
+      <p class="lede muted">
+        Software engineer. Most days that means SwiftUI. Other days it means staring at a token stream
+        until it makes sense. This is where I keep the receipts.
+      </p>
+      <div class="cta-row">
+        <a class="link" href="/work">Recent work</a>
+        <a class="link" href="/writing">Writing</a>
+        <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a>
+        <a class="link" href="mailto:joshua.cardozo@gmail.com">Email</a>
+      </div>
     </div>
+    <aside class="hero-meta" aria-label="At a glance">
+      <dl>
+        <div class="row">
+          <dt>Status</dt>
+          <dd>
+            <span class="pulse" aria-hidden="true"></span>
+            Shipping iOS · employed · not looking
+          </dd>
+        </div>
+        <div class="row">
+          <dt>Stack</dt>
+          <dd>Swift · SwiftUI · TypeScript · React · Claude</dd>
+        </div>
+        <div class="row">
+          <dt>Now</dt>
+          <dd><a class="link" href="/now">A SwiftUI thing &amp; agent loops →</a></dd>
+        </div>
+        <div class="row">
+          <dt>Latest</dt>
+          <dd>
+            {latest ? (
+              <a class="link" href={`/writing/${latest.id}`}>{latest.data.title} →</a>
+            ) : (
+              <span class="muted">Nothing yet</span>
+            )}
+          </dd>
+        </div>
+        <div class="row">
+          <dt>Elsewhere</dt>
+          <dd>
+            <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a>
+            <span class="faint" aria-hidden="true"> · </span>
+            <a class="link" href="mailto:joshua.cardozo@gmail.com">Email</a>
+            <span class="faint" aria-hidden="true"> · </span>
+            <a class="link" href="/cv.pdf" download>CV</a>
+          </dd>
+        </div>
+      </dl>
+    </aside>
   </section>
 
   <section class="grid" aria-label="Highlights">
@@ -108,9 +149,13 @@ try {
 
 <style>
   .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+    gap: 3rem;
+    align-items: start;
     margin-block: 1.5rem 3rem;
-    max-width: 38ch;
   }
+  .hero-main { min-width: 0; max-width: 38ch; }
   .hero h1 {
     font-size: clamp(2rem, 4.6vw, 3.4rem);
     line-height: 1.05;
@@ -129,6 +174,45 @@ try {
   .cta-row {
     display: flex; gap: 1.25rem; margin-top: 1.4rem;
     flex-wrap: wrap;
+  }
+  .hero-meta {
+    padding-top: 0.4rem;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta dl { display: flex; flex-direction: column; gap: 0.85rem; margin: 0; padding-top: 1rem; }
+  .hero-meta .row { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.75rem; align-items: baseline; }
+  .hero-meta dt {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fg-faint);
+    padding-top: 0.1rem;
+  }
+  .hero-meta dd {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--fg-muted);
+  }
+  .hero-meta .link { color: var(--fg); }
+  .pulse {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 0.45rem;
+    box-shadow: 0 0 0 0 var(--accent);
+    animation: pulse 2.4s ease-in-out infinite;
+    vertical-align: middle;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 50%, transparent); }
+    50% { box-shadow: 0 0 0 6px transparent; }
+  }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-meta { max-width: 38ch; }
   }
   .grid {
     display: grid;
