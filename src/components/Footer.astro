@@ -43,7 +43,7 @@ const year = new Date().getFullYear();
   .shortcut:hover { color: var(--accent); }
 </style>
 <script>
-  document.querySelector('[data-open-palette]')?.addEventListener('click', () => {
+  document.querySelector('footer [data-open-palette]')?.addEventListener('click', () => {
     document.dispatchEvent(new CustomEvent('palette:toggle'));
   });
 </script>
