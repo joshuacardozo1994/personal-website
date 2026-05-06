@@ -1,0 +1,87 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/work', label: 'Work' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/lab', label: 'Lab' },
+  { href: '/bookshelf', label: 'Bookshelf' },
+  { href: '/now', label: 'Now' },
+  { href: '/about', label: 'About' },
+];
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+<header class="nav">
+  <div class="row">
+    <a class="brand" href="/" aria-label="Home">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="brand-text">joshua cardozo</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <ThemeToggle />
+  </div>
+</header>
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    backdrop-filter: saturate(160%) blur(10px);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    background: color-mix(in oklab, var(--bg) 78%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .row {
+    width: min(1100px, 100% - 2.5rem);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-block: 0.85rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--fg);
+    letter-spacing: -0.01em;
+  }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .brand-text { white-space: nowrap; }
+  nav { margin-inline-start: auto; }
+  ul {
+    display: flex; gap: 0.25rem;
+    list-style: none; padding: 0; margin: 0;
+  }
+  li a {
+    display: inline-block;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.88rem;
+    color: var(--fg-muted);
+    border-radius: 8px;
+    transition: color .15s ease, background-color .15s ease, transform .15s ease;
+  }
+  li a:hover { color: var(--fg); background: var(--bg-sunken); }
+  li a[aria-current='page'] { color: var(--fg); background: var(--bg-sunken); }
+  @media (max-width: 720px) {
+    .brand-text { display: none; }
+    li a { padding: 0.4rem 0.55rem; font-size: 0.82rem; }
+  }
+</style>

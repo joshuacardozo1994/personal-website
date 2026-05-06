@@ -1,0 +1,96 @@
+---
+---
+<dialog class="p" data-palette aria-label="Quick navigation">
+  <div class="card">
+    <div class="head">
+      <span class="mono faint">jump to</span>
+      <kbd>esc</kbd>
+    </div>
+    <ul role="listbox">
+      <li><a href="/" data-key="h">Home <span class="faint mono">h</span></a></li>
+      <li><a href="/work" data-key="w">Work <span class="faint mono">w</span></a></li>
+      <li><a href="/writing" data-key="r">Writing <span class="faint mono">r</span></a></li>
+      <li><a href="/lab" data-key="l">Lab <span class="faint mono">l</span></a></li>
+      <li><a href="/bookshelf" data-key="b">Bookshelf <span class="faint mono">b</span></a></li>
+      <li><a href="/now" data-key="n">Now <span class="faint mono">n</span></a></li>
+      <li><a href="/about" data-key="a">About <span class="faint mono">a</span></a></li>
+      <li><a href="mailto:joshua.cardozo@gmail.com" data-key="e">Email <span class="faint mono">e</span></a></li>
+      <li><a href="/cv.pdf" data-key="c" download>Download CV <span class="faint mono">c</span></a></li>
+    </ul>
+    <div class="hint mono faint">Press <kbd>?</kbd> anywhere · or a letter to jump</div>
+  </div>
+</dialog>
+<style>
+  .p {
+    border: 0;
+    background: transparent;
+    padding: 0;
+    margin: auto;
+  }
+  .p::backdrop {
+    background: color-mix(in oklab, var(--bg-sunken) 70%, transparent);
+    backdrop-filter: blur(6px);
+  }
+  .card {
+    width: min(420px, calc(100vw - 2rem));
+    background: var(--bg-elev);
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    padding: 0.5rem;
+    box-shadow: 0 24px 60px -20px rgba(0,0,0,0.35);
+  }
+  .head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.5rem 0.75rem 0.25rem;
+  }
+  ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  li a {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    color: var(--fg);
+    font-size: 0.92rem;
+  }
+  li a:hover, li a:focus-visible { background: var(--bg-sunken); outline: none; }
+  .hint { padding: 0.6rem 0.75rem 0.25rem; font-size: 0.75rem; }
+</style>
+<script>
+  const dlg = document.querySelector('[data-palette]') as HTMLDialogElement | null;
+  if (dlg) {
+    const open = () => { if (!dlg.open) dlg.showModal(); };
+    const close = () => { if (dlg.open) dlg.close(); };
+    const toggle = () => (dlg.open ? close() : open());
+
+    document.addEventListener('palette:toggle', toggle);
+
+    document.addEventListener('keydown', (e) => {
+      const target = e.target as HTMLElement | null;
+      const typing = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable);
+      if (typing) return;
+
+      if (e.key === '?' || (e.key === '/' && (e.metaKey || e.ctrlKey))) {
+        e.preventDefault();
+        toggle();
+        return;
+      }
+      if (e.key === 'Escape' && dlg.open) {
+        close();
+        return;
+      }
+      if (dlg.open) {
+        const item = dlg.querySelector<HTMLAnchorElement>(`a[data-key="${e.key.toLowerCase()}"]`);
+        if (item) {
+          e.preventDefault();
+          item.click();
+        }
+      }
+    });
+
+    dlg.addEventListener('click', (e) => {
+      if (e.target === dlg) close();
+    });
+  }
+</script>

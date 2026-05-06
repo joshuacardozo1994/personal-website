@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="About" description="A short version of who I am.">
+  <article class="prose">
+    <p class="kicker mono">about</p>
+    <h1>I write software that runs on phones, in browsers, and lately, in loops.</h1>
+    <p>
+      I'm a software engineer based in Goa, India. Most of my career has been in iOS — Swift, SwiftUI,
+      the long, quiet hours of getting an animation to feel <em>right</em>. The web shows up when it has to,
+      and increasingly, so do agents.
+    </p>
+    <p>
+      I learn by building. Most of what I know came from documentation, source code, and the small humiliations
+      of shipping. The projects I love most are the ones with sparse docs — that's where you find out who you are.
+    </p>
+    <p>
+      I have opinions about animation curves, semicolons, and whether "engineer" is a job title or a posture.
+      I'm currently employed and not looking for work. This site is just a place to keep the receipts.
+    </p>
+    <p class="muted">
+      For the curious: <a class="link" href="/colophon">colophon</a>,
+      <a class="link" href="/cv.pdf" download>CV</a>,
+      <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a>.
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose { display: flex; flex-direction: column; gap: 1.1rem; }
+  .prose h1 { max-width: 22ch; line-height: 1.1; margin-bottom: 0.3rem; }
+  .kicker {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--fg-faint); margin-bottom: 0.4rem;
+  }
+  .prose p { font-size: 1.03rem; line-height: 1.6; }
+</style>

@@ -1,0 +1,49 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="f">
+  <div class="row">
+    <div class="left">
+      <span class="mono faint">© {year} Joshua Cardozo · Goa, India</span>
+    </div>
+    <div class="right">
+      <a class="mono" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a>
+      <span aria-hidden="true" class="sep">·</span>
+      <a class="mono" href="mailto:joshua.cardozo@gmail.com">Email</a>
+      <span aria-hidden="true" class="sep">·</span>
+      <a class="mono" href="/colophon">Colophon</a>
+      <span aria-hidden="true" class="sep">·</span>
+      <button class="mono shortcut" type="button" data-open-palette>
+        Press <kbd>?</kbd>
+      </button>
+    </div>
+  </div>
+</footer>
+<style>
+  .f {
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+    padding-block: 1.5rem;
+  }
+  .row {
+    width: min(1100px, 100% - 2.5rem);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+  }
+  .right { display: inline-flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .right a { color: var(--fg-muted); }
+  .right a:hover { color: var(--accent); }
+  .sep { color: var(--fg-faint); }
+  .shortcut { background: none; border: 0; padding: 0; cursor: pointer; color: var(--fg-muted); font-family: var(--font-mono); font-size: inherit; }
+  .shortcut:hover { color: var(--accent); }
+</style>
+<script>
+  document.querySelector('[data-open-palette]')?.addEventListener('click', () => {
+    document.dispatchEvent(new CustomEvent('palette:toggle'));
+  });
+</script>

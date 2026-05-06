@@ -1,0 +1,58 @@
+---
+interface Props {
+  href?: string;
+  label: string;
+  size?: 'sm' | 'md' | 'lg';
+  span?: 1 | 2;
+  external?: boolean;
+}
+const { href, label, size = 'md', span = 1, external = false } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+<Tag
+  class:list={['tile', `size-${size}`, `span-${span}`]}
+  {...(href ? { href, ...(external ? { target: '_blank', rel: 'noopener' } : {}) } : {})}
+>
+  <span class="label mono">{label}</span>
+  <div class="body">
+    <slot />
+  </div>
+  {href && <span class="arrow" aria-hidden="true">→</span>}
+</Tag>
+<style>
+  .tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: 1.1rem 1.2rem;
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--fg);
+    transition: transform .2s cubic-bezier(.22,1,.36,1), border-color .2s ease, background-color .2s ease;
+    overflow: hidden;
+    min-height: 8rem;
+  }
+  a.tile:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+  a.tile:hover .arrow { transform: translate(2px, -2px); color: var(--accent); }
+  .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fg-faint);
+  }
+  .body { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.4rem; }
+  .arrow {
+    position: absolute; top: 1rem; right: 1rem;
+    color: var(--fg-faint);
+    font-size: 0.95rem;
+    transition: transform .2s ease, color .2s ease;
+  }
+  .span-2 { grid-column: span 2; }
+  .size-sm { min-height: 6rem; }
+  .size-lg { min-height: 11rem; }
+  @media (max-width: 640px) {
+    .span-2 { grid-column: span 1; }
+  }
+</style>

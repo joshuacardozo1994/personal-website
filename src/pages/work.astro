@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const items = (await getCollection('work')).sort((a, b) => b.data.year - a.data.year);
+---
+<Base layout="wide" title="Work" description="Selected things I've shipped.">
+  <header class="head">
+    <p class="kicker mono">work</p>
+    <h1>Selected things, shipped.</h1>
+    <p class="muted lede">A small set on purpose. The rest is on <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a> or buried in the App Store.</p>
+  </header>
+
+  <ul class="grid">
+    {items.map((it) => (
+      <li class="card">
+        <div class="meta mono">
+          <span>{it.data.year}</span>
+          <span class="dot" aria-hidden="true">·</span>
+          <span>{it.data.role}</span>
+        </div>
+        <h2>{it.data.title}</h2>
+        <p class="summary muted">{it.data.summary}</p>
+        <ul class="stack mono">
+          {it.data.stack.map((s) => <li>{s}</li>)}
+        </ul>
+        <div class="links">
+          {it.data.href && <a class="link" href={it.data.href} target="_blank" rel="noopener">Visit ↗</a>}
+          {it.data.repo && <a class="link" href={it.data.repo} target="_blank" rel="noopener">Source ↗</a>}
+        </div>
+      </li>
+    ))}
+  </ul>
+</Base>
+
+<style>
+  .head { margin-block: 1rem 2.5rem; max-width: 50ch; }
+  .kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-faint); }
+  .head h1 { margin-block: 0.4rem 0.6rem; }
+  .lede { font-size: 1rem; }
+  .grid {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+  }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg-elev);
+    padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.6rem;
+    transition: border-color .2s ease;
+  }
+  .card:hover { border-color: var(--line-strong); }
+  .meta { display: flex; gap: 0.5rem; font-size: 0.78rem; color: var(--fg-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .summary { font-size: 0.96rem; line-height: 1.55; }
+  .stack { list-style: none; padding: 0; margin: 0; display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .stack li {
+    font-size: 0.72rem;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--fg-muted);
+  }
+  .links { display: flex; gap: 1rem; margin-top: auto; padding-top: 0.4rem; }
+</style>

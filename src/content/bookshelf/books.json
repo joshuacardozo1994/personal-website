@@ -1,0 +1,22 @@
+[
+  {
+    "id": "currently-reading-1",
+    "title": "Replace me with what you're actually reading",
+    "author": "(your call)",
+    "status": "reading"
+  },
+  {
+    "id": "finished-1",
+    "title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "status": "finished",
+    "rating": 4
+  },
+  {
+    "id": "finished-2",
+    "title": "The Pragmatic Programmer",
+    "author": "Hunt & Thomas",
+    "status": "finished",
+    "rating": 5
+  }
+]

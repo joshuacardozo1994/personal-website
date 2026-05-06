@@ -1,0 +1,148 @@
+---
+import Base from '../layouts/Base.astro';
+import BentoTile from '../components/BentoTile.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const latest = posts[0];
+
+const books = await getCollection('bookshelf');
+const reading = books.find((b) => b.data.status === 'reading') ?? books[0];
+
+interface Repo {
+  name: string;
+  description: string | null;
+  html_url: string;
+  language: string | null;
+  stargazers_count: number;
+}
+
+let repos: Repo[] = [];
+try {
+  const res = await fetch(
+    'https://api.github.com/users/joshuacardozo1994/repos?sort=updated&per_page=6',
+    { headers: { 'User-Agent': 'joshua-cardozo-site' } },
+  );
+  if (res.ok) {
+    const all = (await res.json()) as Array<Repo & { fork: boolean }>;
+    repos = all.filter((r) => !r.fork).slice(0, 3);
+  }
+} catch { /* offline build is fine */ }
+---
+<Base layout="wide" description="Joshua Cardozo — mobile + web engineer in Goa. Currently building iOS apps and tinkering with AI agents.">
+  <section class="hero">
+    <p class="kicker mono">jc · goa, india · 2026</p>
+    <h1>
+      I build things <span class="accent">people prod with their thumb</span> —
+      iOS apps, sometimes the web around them, and lately, agents that hold a thought longer than I can.
+    </h1>
+    <p class="lede muted">
+      Software engineer. Most days that means SwiftUI. Other days it means staring at a token stream
+      until it makes sense. This is where I keep the receipts.
+    </p>
+    <div class="cta-row">
+      <a class="link" href="/work">Recent work</a>
+      <a class="link" href="/writing">Writing</a>
+      <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a>
+      <a class="link" href="mailto:joshua.cardozo@gmail.com">Email</a>
+    </div>
+  </section>
+
+  <section class="grid" aria-label="Highlights">
+    <BentoTile href="/now" label="now" size="md" span={2}>
+      <h3>Shipping a SwiftUI thing & poking at agent loops.</h3>
+      <p class="muted">Updated occasionally. Probably stale.</p>
+    </BentoTile>
+
+    <BentoTile href="/bookshelf" label="reading">
+      {reading ? (
+        <>
+          <h3>{reading.data.title}</h3>
+          <p class="muted">{reading.data.author}</p>
+        </>
+      ) : (
+        <h3 class="muted">Between books.</h3>
+      )}
+    </BentoTile>
+
+    <BentoTile label="repos · github" size="md" span={2} href="https://github.com/joshuacardozo1994" external>
+      {repos.length > 0 ? (
+        <ul class="repos">
+          {repos.map((r) => (
+            <li>
+              <span class="mono">{r.name}</span>
+              <span class="muted small">{r.description ?? '—'}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <h3 class="muted">github.com/joshuacardozo1994</h3>
+      )}
+    </BentoTile>
+
+    <BentoTile href={latest ? `/writing/${latest.id}` : '/writing'} label="latest writing">
+      {latest ? (
+        <>
+          <h3>{latest.data.title}</h3>
+          <p class="muted small">
+            {latest.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}
+          </p>
+        </>
+      ) : (
+        <h3 class="muted">Nothing yet. Soon.</h3>
+      )}
+    </BentoTile>
+
+    <BentoTile href="/lab" label="lab">
+      <h3>Half-finished experiments.</h3>
+      <p class="muted small">AI demos, tiny tools, weekend things.</p>
+    </BentoTile>
+
+    <BentoTile href="/about" label="about">
+      <h3>Who I am, briefly.</h3>
+      <p class="muted small">200 words. No origin story.</p>
+    </BentoTile>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    margin-block: 1.5rem 3rem;
+    max-width: 38ch;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-block: 0.6rem 1rem;
+    max-width: 22ch;
+  }
+  .hero h1 .accent { color: var(--accent); font-style: italic; font-weight: 460; }
+  .kicker {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--fg-faint);
+  }
+  .lede { max-width: 50ch; font-size: 1.02rem; line-height: 1.55; }
+  .cta-row {
+    display: flex; gap: 1.25rem; margin-top: 1.4rem;
+    flex-wrap: wrap;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+    margin-block: 1.5rem 1rem;
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .repos { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+  .repos li { display: flex; gap: 0.6rem; align-items: baseline; font-size: 0.92rem; }
+  .small { font-size: 0.84rem; }
+</style>

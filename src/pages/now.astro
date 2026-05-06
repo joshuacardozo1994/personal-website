@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+const updated = '2026-05-06';
+---
+<Base title="Now" description="What I'm focused on right now.">
+  <article class="prose">
+    <p class="kicker mono">now · updated {updated}</p>
+    <h1>What I'm doing now.</h1>
+    <p>
+      Working on iOS at my day job. Quiet phase — refactoring, not shipping new surfaces.
+    </p>
+    <p>
+      On the side, building tiny tools with Claude and friends. Mostly to see what the loops <em>feel</em> like.
+      Half of them die in the file system. That's fine.
+    </p>
+    <p>
+      Reading <a class="link" href="/bookshelf">a few books</a> in parallel, which is a habit I keep
+      pretending I'll quit.
+    </p>
+    <p class="muted small">
+      A "now page" is a <a class="link" href="https://nownownow.com/about" target="_blank" rel="noopener">Derek-Sivers idea</a>:
+      a single page that answers "what are you up to lately?" so you don't have to email people about it.
+    </p>
+  </article>
+</Base>
+
+<style>
+  .prose { display: flex; flex-direction: column; gap: 1.1rem; }
+  .kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-faint); }
+  .prose h1 { max-width: 22ch; margin-bottom: 0.3rem; }
+  .prose p { font-size: 1.03rem; line-height: 1.6; }
+  .small { font-size: 0.88rem; }
+</style>
