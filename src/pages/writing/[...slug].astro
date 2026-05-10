@@ -12,11 +12,13 @@ const { Content } = await render(post);
 ---
 <Base title={post.data.title} description={post.data.description ?? post.data.title}>
   <article class="post">
-    <p class="kicker mono">
-      {post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}
-    </p>
     <h1>{post.data.title}</h1>
     {post.data.description && <p class="lede muted">{post.data.description}</p>}
+    <p class="date muted">
+      <time datetime={post.data.date.toISOString()}>
+        {post.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </time>
+    </p>
     <hr class="hairline" />
     <div class="prose">
       <Content />
@@ -29,9 +31,9 @@ const { Content } = await render(post);
 </Base>
 
 <style>
-  .kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-faint); }
-  .post h1 { margin-block: 0.5rem 0.6rem; max-width: 22ch; }
+  .post h1 { margin-block: 0 0.6rem; max-width: 22ch; }
   .lede { font-size: 1.1rem; line-height: 1.55; max-width: 50ch; }
+  .date { font-size: 0.9rem; margin-block: 0.4rem 0; }
   .prose :global(p) { font-size: 1.03rem; line-height: 1.7; margin-block: 1rem; }
   .prose :global(h2) { margin-block: 2rem 0.6rem; }
   .prose :global(h3) { margin-block: 1.6rem 0.4rem; }

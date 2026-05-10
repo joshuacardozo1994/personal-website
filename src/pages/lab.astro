@@ -8,7 +8,6 @@ const experiments: Array<{ title: string; status: string; href?: string; note: s
 ---
 <Base title="Lab" description="Half-finished experiments.">
   <header class="head">
-    <p class="kicker mono">lab</p>
     <h1>Things I'm tinkering with.</h1>
     <p class="muted">Most of these will not become products. That's the point.</p>
   </header>
@@ -28,8 +27,7 @@ const experiments: Array<{ title: string; status: string; href?: string; note: s
 
 <style>
   .head { margin-block: 1rem 2rem; max-width: 50ch; }
-  .kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-faint); }
-  .head h1 { margin-block: 0.4rem 0.4rem; }
+  .head h1 { margin-block: 0 0.4rem; }
   .list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem; }
   .list li { display: flex; gap: 1rem; padding-block: 0.4rem; }
   .status {

@@ -15,7 +15,6 @@ const isActive = (href: string) =>
 <header class="nav">
   <div class="row">
     <a class="brand" href="/" aria-label="Home">
-      <span class="dot" aria-hidden="true"></span>
       <span class="brand-text">joshua cardozo</span>
     </a>
     <nav class="primary" aria-label="Primary">
@@ -62,16 +61,10 @@ const isActive = (href: string) =>
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
     font-family: var(--font-mono);
     font-size: 0.82rem;
     color: var(--fg);
     letter-spacing: -0.01em;
-  }
-  .dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
   }
   .brand-text { white-space: nowrap; }
   .primary { margin-inline-start: auto; }

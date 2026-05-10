@@ -33,7 +33,6 @@ try {
 <Base layout="wide" description="Joshua Cardozo — mobile + web engineer in Goa. Currently building iOS apps and tinkering with AI agents.">
   <section class="hero">
     <div class="hero-main">
-      <p class="kicker mono">jc · goa, india · 2026</p>
       <h1>
         I build things <span class="accent">people prod with their thumb</span> —
         iOS apps, sometimes the web around them, and lately, agents that hold a thought longer than I can.
@@ -53,10 +52,7 @@ try {
       <dl>
         <div class="row">
           <dt>Status</dt>
-          <dd>
-            <span class="pulse" aria-hidden="true"></span>
-            Shipping iOS · employed · not looking
-          </dd>
+          <dd>Shipping iOS · employed · not looking</dd>
         </div>
         <div class="row">
           <dt>Stack</dt>
@@ -164,12 +160,6 @@ try {
     max-width: 22ch;
   }
   .hero h1 .accent { color: var(--accent); font-style: italic; font-weight: 460; }
-  .kicker {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--fg-faint);
-  }
   .lede { max-width: 50ch; font-size: 1.02rem; line-height: 1.55; }
   .cta-row {
     display: flex; gap: 1.25rem; margin-top: 1.4rem;
@@ -196,20 +186,6 @@ try {
     color: var(--fg-muted);
   }
   .hero-meta .link { color: var(--fg); }
-  .pulse {
-    display: inline-block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    margin-right: 0.45rem;
-    box-shadow: 0 0 0 0 var(--accent);
-    animation: pulse 2.4s ease-in-out infinite;
-    vertical-align: middle;
-  }
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 50%, transparent); }
-    50% { box-shadow: 0 0 0 6px transparent; }
-  }
   @media (max-width: 860px) {
     .hero { grid-template-columns: 1fr; gap: 2rem; }
     .hero-meta { max-width: 38ch; }

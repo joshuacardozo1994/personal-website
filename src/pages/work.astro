@@ -5,7 +5,6 @@ const items = (await getCollection('work')).sort((a, b) => b.data.year - a.data.
 ---
 <Base layout="wide" title="Work" description="Selected things I've shipped.">
   <header class="head">
-    <p class="kicker mono">work</p>
     <h1>Selected things, shipped.</h1>
     <p class="muted lede">A small set on purpose. The rest is on <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a> or buried in the App Store.</p>
   </header>
@@ -34,8 +33,7 @@ const items = (await getCollection('work')).sort((a, b) => b.data.year - a.data.
 
 <style>
   .head { margin-block: 1rem 2.5rem; max-width: 50ch; }
-  .kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-faint); }
-  .head h1 { margin-block: 0.4rem 0.6rem; }
+  .head h1 { margin-block: 0 0.6rem; }
   .lede { font-size: 1rem; }
   .grid {
     list-style: none; padding: 0; margin: 0;

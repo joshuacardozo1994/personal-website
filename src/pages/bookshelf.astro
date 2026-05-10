@@ -8,7 +8,6 @@ const finished = all.filter((b) => b.data.status === 'finished');
 ---
 <Base title="Bookshelf" description="What I'm reading and what I've finished.">
   <header class="head">
-    <p class="kicker mono">bookshelf</p>
     <h1>Mostly novels, sometimes manuals.</h1>
   </header>
 
@@ -41,13 +40,12 @@ const finished = all.filter((b) => b.data.status === 'finished');
     </section>
   )}
 
-  {all.length === 0 && <p class="muted mono">// shelf is empty for now</p>}
+  {all.length === 0 && <p class="muted">Nothing on the shelf right now.</p>}
 </Base>
 
 <style>
   .head { margin-block: 1rem 2rem; }
-  .kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-faint); }
-  .head h1 { margin-block: 0.4rem 0.4rem; }
+  .head h1 { margin-block: 0 0.4rem; }
   .section-h {
     font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
     color: var(--fg-faint); margin-block: 2rem 0.8rem;
