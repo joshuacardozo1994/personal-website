@@ -22,7 +22,11 @@ const isActive = (href: string) =>
       <ul>
         {links.map((l) => (
           <li>
-            <a href={l.href} aria-current={isActive(l.href) ? 'page' : undefined}>
+            <a
+              href={l.href}
+              aria-current={isActive(l.href) ? 'page' : undefined}
+              data-astro-prefetch="viewport"
+            >
               {l.label}
             </a>
           </li>

@@ -7,15 +7,15 @@
       <kbd>esc</kbd>
     </div>
     <ul role="listbox">
-      <li><a href="/" data-key="h">Home <span class="faint mono">h</span></a></li>
-      <li><a href="/work" data-key="w">Work <span class="faint mono">w</span></a></li>
-      <li><a href="/writing" data-key="r">Writing <span class="faint mono">r</span></a></li>
-      <li><a href="/lab" data-key="l">Lab <span class="faint mono">l</span></a></li>
-      <li><a href="/bookshelf" data-key="b">Bookshelf <span class="faint mono">b</span></a></li>
-      <li><a href="/now" data-key="n">Now <span class="faint mono">n</span></a></li>
-      <li><a href="/about" data-key="a">About <span class="faint mono">a</span></a></li>
-      <li><a href="mailto:joshua.cardozo@gmail.com" data-key="e">Email <span class="faint mono">e</span></a></li>
-      <li><a href="/cv.pdf" data-key="c" download>Download CV <span class="faint mono">c</span></a></li>
+      <li><a href="/" data-astro-prefetch="tap" data-key="h">Home <span class="faint mono">h</span></a></li>
+      <li><a href="/work" data-astro-prefetch="tap" data-key="w">Work <span class="faint mono">w</span></a></li>
+      <li><a href="/writing" data-astro-prefetch="tap" data-key="r">Writing <span class="faint mono">r</span></a></li>
+      <li><a href="/lab" data-astro-prefetch="tap" data-key="l">Lab <span class="faint mono">l</span></a></li>
+      <li><a href="/bookshelf" data-astro-prefetch="tap" data-key="b">Bookshelf <span class="faint mono">b</span></a></li>
+      <li><a href="/now" data-astro-prefetch="tap" data-key="n">Now <span class="faint mono">n</span></a></li>
+      <li><a href="/about" data-astro-prefetch="tap" data-key="a">About <span class="faint mono">a</span></a></li>
+      <li><a href="mailto:joshua.cardozo@gmail.com" data-astro-prefetch="tap" data-key="e">Email <span class="faint mono">e</span></a></li>
+      <li><a href="/cv.pdf" data-astro-prefetch="tap" data-key="c" download>Download CV <span class="faint mono">c</span></a></li>
     </ul>
     <div class="hint mono faint">Press <kbd>?</kbd> anywhere · or a letter to jump</div>
   </div>
@@ -91,6 +91,10 @@
 
     dlg.addEventListener('click', (e) => {
       if (e.target === dlg) close();
+    });
+
+    dlg.querySelectorAll('a[href]').forEach((a) => {
+      a.addEventListener('click', () => close());
     });
   }
 </script>
