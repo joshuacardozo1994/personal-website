@@ -15,4 +15,4 @@ This time the rules are smaller:
 - One accent color, doing one job.
 - No "Hi, I'm Joshua."
 
-If you're reading this on launch day — thanks. If you're reading this on day 400 and the lab page is still empty — also thanks.
+If you're reading this on launch day, thanks. If you're reading this on day 400 and the lab page is still empty, also thanks.

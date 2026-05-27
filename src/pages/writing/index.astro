@@ -12,7 +12,7 @@ const posts = (await getCollection('writing', ({ data }) => !data.draft))
 
   <ul class="list">
     {posts.length === 0 && (
-      <li class="muted">Nothing yet — but soon.</li>
+      <li class="muted">Nothing yet, but soon.</li>
     )}
     {posts.map((p) => (
       <li>
