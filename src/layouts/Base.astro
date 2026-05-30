@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import geistSans from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2';
+import { site } from '../site';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import CommandPalette from '../components/CommandPalette.astro';
@@ -11,12 +13,13 @@ interface Props {
 }
 
 const {
-  title = 'Joshua Cardozo',
+  title = site.author,
   description = 'Mobile + web engineer in Goa, India. Currently shipping iOS and AI things.',
   layout = 'shell',
 } = Astro.props;
 
-const fullTitle = title === 'Joshua Cardozo' ? title : `${title} — Joshua Cardozo`;
+const fullTitle = title === site.author ? title : `${title} — ${site.author}`;
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
 ---
 <!doctype html>
 <html lang="en">
@@ -26,10 +29,13 @@ const fullTitle = title === 'Joshua Cardozo' ? title : `${title} — Joshua Card
     <meta name="color-scheme" content="light dark" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+    <link rel="preload" href={geistSans} as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate icon" href="/favicon.ico" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
+    {canonicalURL && <meta property="og:url" content={canonicalURL} />}
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
     <meta name="generator" content={Astro.generator} />

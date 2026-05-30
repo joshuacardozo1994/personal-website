@@ -1,9 +1,15 @@
 [
   {
     "id": "currently-reading-1",
-    "title": "Replace me with what you're actually reading",
-    "author": "(your call)",
+    "title": "Same as Ever",
+    "author": "Morgan Housel",
     "status": "reading"
+  },
+  {
+    "id": "finished-asoiaf",
+    "title": "A Song of Ice and Fire (series)",
+    "author": "George R. R. Martin",
+    "status": "finished"
   },
   {
     "id": "finished-1",

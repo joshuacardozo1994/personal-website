@@ -1,13 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
+import { site } from '../site';
 ---
 <Base title="About" description="A short version of who I am.">
   <article class="prose">
     <h1>I write software that runs on phones, in browsers, and lately, in loops.</h1>
     <p>
-      I'm a software engineer based in Goa, India. Most of my career has been in iOS, Swift, SwiftUI,
-      the long, quiet hours of getting an animation to feel <em>right</em>. The web shows up when it has to,
-      and increasingly, so do agents.
+      I'm a software engineer based in Goa, India. I started in iOS, Swift, SwiftUI,
+      the long, quiet hours of getting an animation to feel <em>right</em>. These days the day job is fullstack
+      web, leading a team on an AI/ML platform. The phone stuff never left, it just moved to nights and weekends,
+      and agents keep showing up too.
     </p>
     <p>
       I learn by building. Most of what I know came from documentation, source code, and the small humiliations
@@ -19,8 +21,8 @@ import Base from '../layouts/Base.astro';
     </p>
     <p class="muted">
       For the curious: <a class="link" href="/colophon">colophon</a>,
-      <a class="link" href="/cv.pdf" download>CV</a>,
-      <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a>.
+      <a class="link" href={site.cv} download>CV</a>,
+      <a class="link" href={site.github} target="_blank" rel="noopener">GitHub</a>.
     </p>
   </article>
 </Base>

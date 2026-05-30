@@ -1,7 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import BentoTile from '../components/BentoTile.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, z } from 'astro:content';
+import { site } from '../site';
 
 const posts = (await getCollection('writing', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -10,49 +11,52 @@ const latest = posts[0];
 const books = await getCollection('bookshelf');
 const reading = books.find((b) => b.data.status === 'reading') ?? books[0];
 
-interface Repo {
-  name: string;
-  description: string | null;
-  html_url: string;
-  language: string | null;
-  stargazers_count: number;
-}
+const RepoSchema = z.object({
+  name: z.string(),
+  description: z.string().nullable(),
+  fork: z.boolean(),
+});
+type Repo = z.infer<typeof RepoSchema>;
 
 let repos: Repo[] = [];
 try {
   const res = await fetch(
-    'https://api.github.com/users/joshuacardozo1994/repos?sort=updated&per_page=6',
-    { headers: { 'User-Agent': 'joshua-cardozo-site' } },
+    `https://api.github.com/users/${site.githubUser}/repos?sort=updated&per_page=6`,
+    { headers: { 'User-Agent': 'joshua-cardozo-site' }, signal: AbortSignal.timeout(3000) },
   );
   if (res.ok) {
-    const all = (await res.json()) as Array<Repo & { fork: boolean }>;
-    repos = all.filter((r) => !r.fork).slice(0, 3);
+    // Validate the shape instead of trusting it: GitHub can return a 200 with a
+    // non-array body (e.g. under rate limiting), which would otherwise throw.
+    const parsed = z.array(RepoSchema).safeParse(await res.json());
+    if (parsed.success) {
+      repos = parsed.data.filter((r) => !r.fork).slice(0, 3);
+    }
   }
-} catch { /* offline build is fine */ }
+} catch { /* offline / timeout / shape drift: render the fallback tile */ }
 ---
 <Base layout="wide" description="Joshua Cardozo, mobile + web engineer in Goa. Currently building iOS apps and tinkering with AI agents.">
   <section class="hero">
     <div class="hero-main">
       <h1>
         I build things <span class="accent">people prod with their thumb</span>,
-        iOS apps, sometimes the web around them, and lately, agents that hold a thought longer than I can.
+        iOS apps, the web behind them, and lately, agents that hold a thought longer than I can.
       </h1>
       <p class="lede muted">
-        Software engineer. Most days that means SwiftUI. Other days it means staring at a token stream
-        until it makes sense. This is where I keep the receipts.
+        Software engineer. Most days that means leading a fullstack web team. Other days it's SwiftUI,
+        or staring at a token stream until it makes sense. This is where I keep the receipts.
       </p>
       <div class="cta-row">
         <a class="link" href="/work">Recent work</a>
         <a class="link" href="/writing">Writing</a>
-        <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a>
-        <a class="link" href="mailto:joshua.cardozo@gmail.com">Email</a>
+        <a class="link" href={site.github} target="_blank" rel="noopener">GitHub</a>
+        <a class="link" href={`mailto:${site.email}`}>Email</a>
       </div>
     </div>
     <aside class="hero-meta" aria-label="At a glance">
       <dl>
         <div class="row">
           <dt>Status</dt>
-          <dd>Shipping iOS · employed · not looking</dd>
+          <dd>Leading a fullstack team · employed · not looking</dd>
         </div>
         <div class="row">
           <dt>Stack</dt>
@@ -60,13 +64,13 @@ try {
         </div>
         <div class="row">
           <dt>Now</dt>
-          <dd><a class="link" href="/now">A SwiftUI thing &amp; agent loops →</a></dd>
+          <dd><a class="link" href="/now">AI platform at work, iOS at night <span aria-hidden="true">→</span></a></dd>
         </div>
         <div class="row">
           <dt>Latest</dt>
           <dd>
             {latest ? (
-              <a class="link" href={`/writing/${latest.id}`}>{latest.data.title} →</a>
+              <a class="link" href={`/writing/${latest.id}`}>{latest.data.title} <span aria-hidden="true">→</span></a>
             ) : (
               <span class="muted">Nothing yet</span>
             )}
@@ -75,11 +79,11 @@ try {
         <div class="row">
           <dt>Elsewhere</dt>
           <dd>
-            <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a>
+            <a class="link" href={site.github} target="_blank" rel="noopener">GitHub</a>
             <span class="faint" aria-hidden="true"> · </span>
-            <a class="link" href="mailto:joshua.cardozo@gmail.com">Email</a>
+            <a class="link" href={`mailto:${site.email}`}>Email</a>
             <span class="faint" aria-hidden="true"> · </span>
-            <a class="link" href="/cv.pdf" download>CV</a>
+            <a class="link" href={site.cv} download>CV</a>
           </dd>
         </div>
       </dl>
@@ -88,7 +92,7 @@ try {
 
   <section class="grid" aria-label="Highlights">
     <BentoTile href="/now" label="now" size="md" span={2}>
-      <h3>Shipping a SwiftUI thing & poking at agent loops.</h3>
+      <h3>Big platform lifts at work. SwiftUI and agents on the side.</h3>
       <p class="muted">Updated occasionally. Probably stale.</p>
     </BentoTile>
 
@@ -103,7 +107,7 @@ try {
       )}
     </BentoTile>
 
-    <BentoTile label="repos · github" size="md" span={2} href="https://github.com/joshuacardozo1994" external>
+    <BentoTile label="repos · github" size="md" span={2} href={site.github} external>
       {repos.length > 0 ? (
         <ul class="repos">
           {repos.map((r) => (
@@ -114,7 +118,7 @@ try {
           ))}
         </ul>
       ) : (
-        <h3 class="muted">github.com/joshuacardozo1994</h3>
+        <h3 class="muted">github.com/{site.githubUser}</h3>
       )}
     </BentoTile>
 

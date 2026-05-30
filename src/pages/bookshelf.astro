@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 const all = await getCollection('bookshelf');
 const reading = all.filter((b) => b.data.status === 'reading');
 const finished = all.filter((b) => b.data.status === 'finished');
+const abandoned = all.filter((b) => b.data.status === 'abandoned');
 ---
 <Base title="Bookshelf" description="What I'm reading and what I've finished.">
   <header class="head">
@@ -18,7 +19,7 @@ const finished = all.filter((b) => b.data.status === 'finished');
         {reading.map((b) => (
           <li>
             <span class="title">{b.data.title}</span>
-            <span class="muted">— {b.data.author}</span>
+            <span class="muted"><span aria-hidden="true">— </span>{b.data.author}</span>
           </li>
         ))}
       </ul>
@@ -32,8 +33,22 @@ const finished = all.filter((b) => b.data.status === 'finished');
         {finished.map((b) => (
           <li>
             <span class="title">{b.data.title}</span>
-            <span class="muted">— {b.data.author}</span>
-            {b.data.rating && <span class="rating mono faint">{'★'.repeat(b.data.rating)}</span>}
+            <span class="muted"><span aria-hidden="true">— </span>{b.data.author}</span>
+            {b.data.rating && <span class="rating mono faint" role="img" aria-label={`Rated ${b.data.rating} out of 5`}>{'★'.repeat(b.data.rating)}</span>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {abandoned.length > 0 && (
+    <section>
+      <h2 class="section-h">Abandoned</h2>
+      <ul class="list">
+        {abandoned.map((b) => (
+          <li>
+            <span class="title">{b.data.title}</span>
+            <span class="muted"><span aria-hidden="true">— </span>{b.data.author}</span>
           </li>
         ))}
       </ul>

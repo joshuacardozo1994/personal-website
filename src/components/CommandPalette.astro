@@ -1,12 +1,13 @@
 ---
+import { site } from '../site';
 ---
-<dialog class="p" data-palette aria-label="Quick navigation">
+<dialog class="p" id="palette" data-palette aria-label="Quick navigation">
   <div class="card">
     <div class="head">
       <span class="mono faint">jump to</span>
       <kbd>esc</kbd>
     </div>
-    <ul role="listbox">
+    <ul>
       <li><a href="/" data-astro-prefetch="tap" data-key="h">Home <span class="faint mono">h</span></a></li>
       <li><a href="/work" data-astro-prefetch="tap" data-key="w">Work <span class="faint mono">w</span></a></li>
       <li><a href="/writing" data-astro-prefetch="tap" data-key="r">Writing <span class="faint mono">r</span></a></li>
@@ -14,8 +15,8 @@
       <li><a href="/bookshelf" data-astro-prefetch="tap" data-key="b">Bookshelf <span class="faint mono">b</span></a></li>
       <li><a href="/now" data-astro-prefetch="tap" data-key="n">Now <span class="faint mono">n</span></a></li>
       <li><a href="/about" data-astro-prefetch="tap" data-key="a">About <span class="faint mono">a</span></a></li>
-      <li><a href="mailto:joshua.cardozo@gmail.com" data-astro-prefetch="tap" data-key="e">Email <span class="faint mono">e</span></a></li>
-      <li><a href="/cv.pdf" data-astro-prefetch="tap" data-key="c" download>Download CV <span class="faint mono">c</span></a></li>
+      <li><a href={`mailto:${site.email}`} data-astro-prefetch="tap" data-key="e">Email <span class="faint mono">e</span></a></li>
+      <li><a href={site.cv} data-astro-prefetch="tap" data-key="c" download>Download CV <span class="faint mono">c</span></a></li>
     </ul>
     <div class="hint mono faint">Press <kbd>?</kbd> anywhere · or a letter to jump</div>
   </div>
@@ -60,8 +61,11 @@
 <script>
   const dlg = document.querySelector('[data-palette]') as HTMLDialogElement | null;
   if (dlg) {
-    const open = () => { if (!dlg.open) dlg.showModal(); };
-    const close = () => { if (dlg.open) dlg.close(); };
+    const triggers = document.querySelectorAll('[data-open-palette]');
+    const setExpanded = (v: boolean) =>
+      triggers.forEach((t) => t.setAttribute('aria-expanded', String(v)));
+    const open = () => { if (!dlg.open) { dlg.showModal(); setExpanded(true); } };
+    const close = () => { if (dlg.open) { dlg.close(); setExpanded(false); } };
     const toggle = () => (dlg.open ? close() : open());
 
     document.addEventListener('palette:toggle', toggle);
@@ -81,6 +85,8 @@
         return;
       }
       if (dlg.open) {
+        // Don't hijack browser/OS shortcuts like Cmd+R, Ctrl+L while open.
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
         const item = dlg.querySelector<HTMLAnchorElement>(`a[data-key="${e.key.toLowerCase()}"]`);
         if (item) {
           e.preventDefault();

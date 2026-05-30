@@ -13,7 +13,7 @@
   --bg-sunken: #f1efe9;
   --fg: #14140f;
   --fg-muted: #6b6b63;
-  --fg-faint: #9c9c93;
+  --fg-faint: #74746d;
   --line: color-mix(in oklab, var(--fg) 10%, transparent);
   --line-strong: color-mix(in oklab, var(--fg) 22%, transparent);
 
@@ -32,7 +32,7 @@
   --bg-sunken: #060606;
   --fg: #f2f2ef;
   --fg-muted: #8a8a82;
-  --fg-faint: #555550;
+  --fg-faint: #80807a;
   --line: color-mix(in oklab, var(--fg) 12%, transparent);
   --line-strong: color-mix(in oklab, var(--fg) 24%, transparent);
   --accent: #5b86ff;
@@ -127,6 +127,17 @@ kbd {
 
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 ::view-transition-old(root),

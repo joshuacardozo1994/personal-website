@@ -37,9 +37,16 @@
     if (root.dataset.theme === 'light' || root.dataset.theme === 'dark') return root.dataset.theme;
     return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
+  function sync() {
+    const dark = current() === 'dark';
+    btn?.setAttribute('aria-pressed', String(dark));
+    btn?.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  sync();
   btn?.addEventListener('click', () => {
     const next = current() === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     try { localStorage.setItem('theme', next); } catch {}
+    sync();
   });
 </script>

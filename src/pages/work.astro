@@ -1,12 +1,13 @@
 ---
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
+import { site } from '../site';
 const items = (await getCollection('work')).sort((a, b) => b.data.year - a.data.year);
 ---
 <Base layout="wide" title="Work" description="Selected things I've shipped.">
   <header class="head">
     <h1>Selected things, shipped.</h1>
-    <p class="muted lede">A small set on purpose. The rest is on <a class="link" href="https://github.com/joshuacardozo1994" target="_blank" rel="noopener">GitHub</a> or buried in the App Store.</p>
+    <p class="muted lede">A small set on purpose. The rest is on <a class="link" href={site.github} target="_blank" rel="noopener">GitHub</a> or buried in the App Store.</p>
   </header>
 
   <ul class="grid">
@@ -23,8 +24,8 @@ const items = (await getCollection('work')).sort((a, b) => b.data.year - a.data.
           {it.data.stack.map((s) => <li>{s}</li>)}
         </ul>
         <div class="links">
-          {it.data.href && <a class="link" href={it.data.href} target="_blank" rel="noopener">Visit ↗</a>}
-          {it.data.repo && <a class="link" href={it.data.repo} target="_blank" rel="noopener">Source ↗</a>}
+          {it.data.href && <a class="link" href={it.data.href} target="_blank" rel="noopener">Visit <span aria-hidden="true">↗</span><span class="sr-only">(opens in new tab)</span></a>}
+          {it.data.repo && <a class="link" href={it.data.repo} target="_blank" rel="noopener">Source <span aria-hidden="true">↗</span><span class="sr-only">(opens in new tab)</span></a>}
         </div>
       </li>
     ))}
