@@ -1,0 +1,212 @@
+---
+import Base from '../layouts/Base.astro';
+import BentoTile from '../components/BentoTile.astro';
+import { getCollection, z } from 'astro:content';
+import { site } from '../site';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const latest = posts[0];
+
+const books = await getCollection('bookshelf');
+const reading = books.find((b) => b.data.status === 'reading') ?? books[0];
+
+const RepoSchema = z.object({
+  name: z.string(),
+  description: z.string().nullable(),
+  fork: z.boolean(),
+});
+type Repo = z.infer<typeof RepoSchema>;
+
+let repos: Repo[] = [];
+try {
+  const res = await fetch(
+    `https://api.github.com/users/${site.githubUser}/repos?sort=updated&per_page=6`,
+    { headers: { 'User-Agent': 'joshua-cardozo-site' }, signal: AbortSignal.timeout(3000) },
+  );
+  if (res.ok) {
+    // Validate the shape instead of trusting it: GitHub can return a 200 with a
+    // non-array body (e.g. under rate limiting), which would otherwise throw.
+    const parsed = z.array(RepoSchema).safeParse(await res.json());
+    if (parsed.success) {
+      repos = parsed.data.filter((r) => !r.fork).slice(0, 3);
+    }
+  }
+} catch { /* offline / timeout / shape drift: render the fallback tile */ }
+---
+<Base layout="wide" description="Joshua Cardozo, mobile + web engineer in Goa. Currently building iOS apps and tinkering with AI agents.">
+  <section class="hero">
+    <div class="hero-main">
+      <h1>
+        I build things <span class="accent">people prod with their thumb</span>,
+        iOS apps, the web behind them, and lately, agents that hold a thought longer than I can.
+      </h1>
+      <p class="lede muted">
+        Software engineer. Most days that means leading a fullstack web team. Other days it's SwiftUI,
+        or staring at a token stream until it makes sense. This is where I keep the receipts.
+      </p>
+      <div class="cta-row">
+        <a class="link" href="/work">Recent work</a>
+        <a class="link" href="/writing">Writing</a>
+        <a class="link" href={site.github} target="_blank" rel="noopener">GitHub</a>
+        <a class="link" href={`mailto:${site.email}`}>Email</a>
+      </div>
+    </div>
+    <aside class="hero-meta" aria-label="At a glance">
+      <dl>
+        <div class="row">
+          <dt>Status</dt>
+          <dd>Leading a fullstack team · employed · not looking</dd>
+        </div>
+        <div class="row">
+          <dt>Stack</dt>
+          <dd>Swift · SwiftUI · TypeScript · React · Claude</dd>
+        </div>
+        <div class="row">
+          <dt>Now</dt>
+          <dd><a class="link" href="/now">AI platform at work, iOS at night <span aria-hidden="true">→</span></a></dd>
+        </div>
+        <div class="row">
+          <dt>Latest</dt>
+          <dd>
+            {latest ? (
+              <a class="link" href={`/writing/${latest.id}`}>{latest.data.title} <span aria-hidden="true">→</span></a>
+            ) : (
+              <span class="muted">Nothing yet</span>
+            )}
+          </dd>
+        </div>
+        <div class="row">
+          <dt>Elsewhere</dt>
+          <dd>
+            <a class="link" href={site.github} target="_blank" rel="noopener">GitHub</a>
+            <span class="faint" aria-hidden="true"> · </span>
+            <a class="link" href={`mailto:${site.email}`}>Email</a>
+            <span class="faint" aria-hidden="true"> · </span>
+            <a class="link" href={site.cv} download>CV</a>
+          </dd>
+        </div>
+      </dl>
+    </aside>
+  </section>
+
+  <section class="grid" aria-label="Highlights">
+    <BentoTile href="/now" label="now" size="md" span={2}>
+      <h3>Big platform lifts at work. SwiftUI and agents on the side.</h3>
+      <p class="muted">Updated occasionally. Probably stale.</p>
+    </BentoTile>
+
+    <BentoTile href="/bookshelf" label="reading">
+      {reading ? (
+        <>
+          <h3>{reading.data.title}</h3>
+          <p class="muted">{reading.data.author}</p>
+        </>
+      ) : (
+        <h3 class="muted">Between books.</h3>
+      )}
+    </BentoTile>
+
+    <BentoTile label="repos · github" size="md" span={2} href={site.github} external>
+      {repos.length > 0 ? (
+        <ul class="repos">
+          {repos.map((r) => (
+            <li>
+              <span class="mono">{r.name}</span>
+              <span class="muted small">{r.description ?? '—'}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <h3 class="muted">github.com/{site.githubUser}</h3>
+      )}
+    </BentoTile>
+
+    <BentoTile href={latest ? `/writing/${latest.id}` : '/writing'} label="latest writing">
+      {latest ? (
+        <>
+          <h3>{latest.data.title}</h3>
+          <p class="muted small">
+            {latest.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}
+          </p>
+        </>
+      ) : (
+        <h3 class="muted">Nothing yet. Soon.</h3>
+      )}
+    </BentoTile>
+
+    <BentoTile href="/lab" label="lab">
+      <h3>Half-finished experiments.</h3>
+      <p class="muted small">AI demos, tiny tools, weekend things.</p>
+    </BentoTile>
+
+    <BentoTile href="/about" label="about">
+      <h3>Who I am, briefly.</h3>
+      <p class="muted small">200 words. No origin story.</p>
+    </BentoTile>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+    gap: 3rem;
+    align-items: start;
+    margin-block: 1.5rem 3rem;
+  }
+  .hero-main { min-width: 0; max-width: 38ch; }
+  .hero h1 {
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-block: 0.6rem 1rem;
+    max-width: 22ch;
+  }
+  .hero h1 .accent { color: var(--accent); font-style: italic; font-weight: 460; }
+  .lede { max-width: 50ch; font-size: 1.02rem; line-height: 1.55; }
+  .cta-row {
+    display: flex; gap: 1.25rem; margin-top: 1.4rem;
+    flex-wrap: wrap;
+  }
+  .hero-meta {
+    padding-top: 0.4rem;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta dl { display: flex; flex-direction: column; gap: 0.85rem; margin: 0; padding-top: 1rem; }
+  .hero-meta .row { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.75rem; align-items: baseline; }
+  .hero-meta dt {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fg-faint);
+    padding-top: 0.1rem;
+  }
+  .hero-meta dd {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--fg-muted);
+  }
+  .hero-meta .link { color: var(--fg); }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-meta { max-width: 38ch; }
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+    margin-block: 1.5rem 1rem;
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .repos { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+  .repos li { display: flex; gap: 0.6rem; align-items: baseline; font-size: 0.92rem; }
+  .small { font-size: 0.84rem; }
+</style>

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "currently-reading-1",
+    "title": "Same as Ever",
+    "author": "Morgan Housel",
+    "status": "reading"
+  },
+  {
+    "id": "finished-asoiaf",
+    "title": "A Song of Ice and Fire (series)",
+    "author": "George R. R. Martin",
+    "status": "finished"
+  },
+  {
+    "id": "finished-1",
+    "title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "status": "finished",
+    "rating": 4
+  },
+  {
+    "id": "finished-2",
+    "title": "The Pragmatic Programmer",
+    "author": "Hunt & Thomas",
+    "status": "finished",
+    "rating": 5
+  }
+]

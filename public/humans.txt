@@ -1,0 +1,14 @@
+/* TEAM */
+  Engineer: Joshua Cardozo
+  Site: https://joshuacardozo.in
+  Location: Goa, India
+  GitHub: @joshuacardozo1994
+
+/* SITE */
+  Built with: Astro, TypeScript, Geist
+  Color: cobalt-on-paper or cobalt-on-ink
+  Last update: 2026/05
+  Standards: HTML5, CSS, a little JS
+
+/* HUMAN */
+  If you read /humans.txt files for fun, we'd probably get along.

@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+const experiments: Array<{ title: string; status: string; href?: string; note: string }> = [
+  { title: 'Agent that runs on a budget', status: 'wip', note: 'A small Claude-powered loop that quits when it hits a token cap. Useful, ugly.' },
+  { title: 'SwiftUI scrub control', status: 'idea', note: 'A scrub-bar that doesn\'t fight your thumb on small phones.' },
+  { title: 'Local-first scratchpad', status: 'idea', note: 'Notes, but the database is a folder.' },
+];
+---
+<Base title="Lab" description="Half-finished experiments.">
+  <header class="head">
+    <h1>Things I'm tinkering with.</h1>
+    <p class="muted">Most of these will not become products. That's the point.</p>
+  </header>
+
+  <ul class="list">
+    {experiments.map((e) => (
+      <li>
+        <span class={`status mono status-${e.status}`}>{e.status}</span>
+        <div class="copy">
+          <h3>{e.href ? <a class="link" href={e.href}>{e.title}</a> : e.title}</h3>
+          <p class="muted small">{e.note}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</Base>
+
+<style>
+  .head { margin-block: 1rem 2rem; max-width: 50ch; }
+  .head h1 { margin-block: 0 0.4rem; }
+  .list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem; }
+  .list li { display: flex; gap: 1rem; padding-block: 0.4rem; }
+  .status {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--fg-muted);
+    height: fit-content;
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .status-wip { color: var(--accent); border-color: var(--accent-soft); }
+  .copy { display: flex; flex-direction: column; gap: 0.25rem; }
+  h3 { font-size: 1.05rem; }
+  .small { font-size: 0.92rem; }
+</style>

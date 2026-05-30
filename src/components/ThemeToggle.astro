@@ -1,0 +1,52 @@
+---
+---
+<button class="t" type="button" aria-label="Toggle theme" data-theme-toggle>
+  <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+  </svg>
+  <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+  </svg>
+</button>
+<style>
+  .t {
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    color: var(--fg-muted);
+    width: 34px; height: 34px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+  }
+  .t:hover { color: var(--fg); border-color: var(--line-strong); }
+  .sun { display: none; }
+  .moon { display: block; }
+  :root[data-theme='dark'] .sun { display: block; }
+  :root[data-theme='dark'] .moon { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) .sun { display: block; }
+    :root:not([data-theme='light']) .moon { display: none; }
+  }
+</style>
+<script>
+  const btn = document.querySelector('[data-theme-toggle]');
+  const root = document.documentElement;
+  function current(): 'light' | 'dark' {
+    if (root.dataset.theme === 'light' || root.dataset.theme === 'dark') return root.dataset.theme;
+    return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function sync() {
+    const dark = current() === 'dark';
+    btn?.setAttribute('aria-pressed', String(dark));
+    btn?.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  sync();
+  btn?.addEventListener('click', () => {
+    const next = current() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch {}
+    sync();
+  });
+</script>

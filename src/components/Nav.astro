@@ -1,0 +1,113 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/work', label: 'Work' },
+  { href: '/writing', label: 'Writing' },
+  { href: '/lab', label: 'Lab' },
+  { href: '/bookshelf', label: 'Bookshelf' },
+  { href: '/now', label: 'Now' },
+  { href: '/about', label: 'About' },
+];
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+<header class="nav">
+  <div class="row">
+    <a class="brand" href="/" aria-label="Home">
+      <span class="brand-text">joshua cardozo</span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              aria-current={isActive(l.href) ? 'page' : undefined}
+              data-astro-prefetch="viewport"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <button class="menu" type="button" aria-label="Open quick navigation" aria-haspopup="dialog" aria-controls="palette" aria-expanded="false" data-open-palette>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+    <ThemeToggle />
+  </div>
+</header>
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    backdrop-filter: saturate(160%) blur(10px);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    background: color-mix(in oklab, var(--bg) 78%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  .row {
+    width: min(1100px, 100% - 2rem);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-block: 0.85rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--fg);
+    letter-spacing: -0.01em;
+  }
+  .brand-text { white-space: nowrap; }
+  .primary { margin-inline-start: auto; }
+  ul {
+    display: flex; gap: 0.15rem;
+    list-style: none; padding: 0; margin: 0;
+  }
+  li a {
+    display: inline-block;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.86rem;
+    color: var(--fg-muted);
+    border-radius: 8px;
+    transition: color .15s ease, background-color .15s ease;
+  }
+  li a:hover { color: var(--fg); background: var(--bg-sunken); }
+  li a[aria-current='page'] { color: var(--fg); background: var(--bg-sunken); }
+
+  .menu {
+    display: none;
+    margin-inline-start: auto;
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    color: var(--fg-muted);
+    width: 34px; height: 34px;
+    align-items: center; justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .menu:hover { color: var(--fg); border-color: var(--line-strong); }
+
+  @media (max-width: 860px) {
+    li a { padding: 0.4rem 0.55rem; font-size: 0.82rem; }
+  }
+  @media (max-width: 720px) {
+    .brand-text { display: none; }
+    .primary { display: none; }
+    .menu { display: inline-flex; }
+  }
+</style>
+<script>
+  document.querySelector('.nav [data-open-palette]')?.addEventListener('click', () => {
+    document.dispatchEvent(new CustomEvent('palette:toggle'));
+  });
+</script>

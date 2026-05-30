@@ -1,0 +1,90 @@
+---
+import '../styles/global.css';
+import geistSans from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2';
+import { site } from '../site';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CommandPalette from '../components/CommandPalette.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  layout?: 'shell' | 'wide';
+}
+
+const {
+  title = site.author,
+  description = 'Mobile + web engineer in Goa, India. Currently shipping iOS and AI things.',
+  layout = 'shell',
+} = Astro.props;
+
+const fullTitle = title === site.author ? title : `${title} — ${site.author}`;
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {canonicalURL && <link rel="canonical" href={canonicalURL} />}
+    <link rel="preload" href={geistSans} as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {canonicalURL && <meta property="og:url" content={canonicalURL} />}
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      // No-flash theme init: respect saved choice; else follow OS.
+      (() => {
+        try {
+          const saved = localStorage.getItem('theme');
+          if (saved === 'light' || saved === 'dark') {
+            document.documentElement.dataset.theme = saved;
+          }
+        } catch {}
+      })();
+    </script>
+    <!--
+      Hi. If you're reading this, you're the kind of person I'd buy coffee for.
+      Source: https://github.com/joshuacardozo1994
+    -->
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Nav />
+    <main id="main" class={layout === 'shell' ? 'shell main' : 'wide main'}>
+      <slot />
+    </main>
+    <Footer />
+    <CommandPalette />
+    <style>
+      .skip {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+      }
+      .skip:focus {
+        left: 1rem;
+        top: 1rem;
+        background: var(--accent);
+        color: #fff;
+        padding: .5rem .75rem;
+        border-radius: 8px;
+        z-index: 100;
+      }
+      .main {
+        padding-block: clamp(2rem, 6vw, 4rem) clamp(3rem, 8vw, 6rem);
+      }
+      .wide.main {
+        width: min(1100px, 100% - 2.5rem);
+        margin-inline: auto;
+      }
+    </style>
+  </body>
+</html>
