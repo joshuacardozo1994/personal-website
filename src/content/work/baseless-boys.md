@@ -4,5 +4,5 @@ year: 2026
 role: 'Solo'
 stack: ['Next.js', 'TypeScript', 'Prisma', 'Postgres', 'Pusher', 'Swift']
 href: 'https://www.baselessboys.com'
-summary: "A real-time web app with a native iOS companion. Next.js and Postgres on the back, Pusher pushing updates around, a more disciplined data-fetching layer than a thing this size really needs. My largest personal codebase, for better and worse."
+summary: "A real-time web app with a native iOS companion. Next.js and Postgres on the back, Pusher moving updates around, and a data-fetching layer more disciplined than an app this size has any right to need. My largest personal codebase, and it shows."
 ---

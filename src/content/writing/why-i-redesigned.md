@@ -4,9 +4,9 @@ description: 'A short note on starting over with Astro.'
 date: 2026-05-06
 ---
 
-I had a Next.js site. It was fine. It had pastel skill cards and a "Coming Soon" works page that has been coming for two years.
+I had a Next.js site. It was fine. It had pastel skill cards and a works page that said "Coming Soon" for the better part of two years, which is its own kind of statement.
 
-The honest reason for redesigning: I wanted somewhere quiet to write, and the old site felt like it expected someone to hire me. I'm not looking. I just wanted the receipts in one place.
+The honest reason for redesigning: I wanted somewhere quiet to write, and the old site felt like it was waiting for someone to hire me, which I'm not asking anyone to do. I just wanted a plain place to keep the work, the stuff that shipped and the stuff that didn't.
 
 This time the rules are smaller:
 
@@ -15,4 +15,4 @@ This time the rules are smaller:
 - One accent color, doing one job.
 - No "Hi, I'm Joshua."
 
-If you're reading this on launch day, thanks. If you're reading this on day 400 and the lab page is still empty, also thanks.
+If you're reading this on launch day, thanks for being early. If you're reading it on day 400 and the lab page still has the same two experiments, that tracks.

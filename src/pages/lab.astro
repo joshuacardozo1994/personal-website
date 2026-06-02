@@ -1,15 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 const experiments: Array<{ title: string; status: string; href?: string; note: string }> = [
-  { title: 'Agent that runs on a budget', status: 'wip', note: 'A small Claude-powered loop that quits when it hits a token cap. Useful, ugly.' },
-  { title: 'SwiftUI scrub control', status: 'idea', note: 'A scrub-bar that doesn\'t fight your thumb on small phones.' },
-  { title: 'Local-first scratchpad', status: 'idea', note: 'Notes, but the database is a folder.' },
+  { title: 'My own little NAS', status: 'wip', note: 'A Pi and a spare SSD, so my devices stop routing everything through someone else\'s cloud.' },
+  { title: 'XO that won\'t end', status: 'wip', note: 'Tic-tac-toe, but your oldest move disappears. So it never settles into a draw.' },
 ];
 ---
-<Base title="Lab" description="Half-finished experiments.">
+<Base title="Lab" description="Things I'm tinkering with.">
   <header class="head">
     <h1>Things I'm tinkering with.</h1>
-    <p class="muted">Most of these will not become products. That's the point.</p>
+    <p class="muted">Most of these won't become products, and that was never the plan, I build them to find out if the idea holds up.</p>
   </header>
 
   <ul class="list">
