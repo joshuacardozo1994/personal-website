@@ -1,0 +1,371 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site';
+
+// Canonical web host, derived from astro.config so it stays in one place.
+const host = Astro.site ? new URL(Astro.site).host : 'joshuacardozo.in';
+---
+<Base
+  title="CV"
+  layout="wide"
+  description="Curriculum vitae of Joshua Cardozo — product engineer across the web and the native Apple stack."
+>
+  <div class="cv">
+    <!-- Toolbar: title left, download top-right -->
+    <div class="bar">
+      <div class="bar-l">
+        <h1>Curriculum&nbsp;Vitae</h1>
+        <p class="sub mono">Joshua Cardozo · Product Engineer</p>
+      </div>
+      <a class="dl" href={site.cvLight} data-cv-light={site.cvLight} data-cv-dark={site.cvDark} download="Joshua-Cardozo-CV.pdf">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5"/>
+          <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+        </svg>
+        <span>Download PDF</span>
+      </a>
+    </div>
+
+    <!-- The document: two A4 sheets on a sunken desk -->
+    <div class="stage">
+      <div class="doc">
+
+        <!-- ═══════════ PAGE 1 ═══════════ -->
+        <article class="sheet">
+          <header class="masthead">
+            <div>
+              <h2 class="name">Joshua Cardozo<span class="dot">.</span></h2>
+              <p class="role-line"><b>Product Engineer</b> &nbsp;·&nbsp; Web &amp; Native Apple &nbsp;·&nbsp; ~10 years</p>
+            </div>
+            <div class="contact">
+              <div class="row"><span class="k">Email</span><a href={`mailto:${site.email}`}>{site.email}</a></div>
+              <div class="row"><span class="k">GitHub</span><a href={site.github}>github.com/{site.githubUser}</a></div>
+              <div class="row"><span class="k">Web</span><a href={`https://${host}`}>{host}</a></div>
+              <div class="row"><span class="k">Based</span><span>{site.location}</span></div>
+            </div>
+          </header>
+
+          <p class="summary">
+            Product engineer, web and native Apple. Almost ten years shipping <b>end to end</b>:
+            React, Next.js and TypeScript on the web; Swift and SwiftUI across iOS, watchOS and macOS.
+            <b>One domain model carried across platforms</b>, from a delivery service used by hundreds of
+            thousands, to a Fortune-50 internal AI/ML platform, to my own apps in the App Store.
+          </p>
+
+          <section class="section">
+            <div class="section-head"><span class="num">01</span><h3>Experience</h3><span class="line"></span></div>
+
+            <article class="entry">
+              <div class="when">Jun 2024 – <span class="now">Present</span><div class="where">Remote</div></div>
+              <div class="body">
+                <h4 class="org">Johnson &amp; Johnson · AMP</h4>
+                <p class="titles">Frontend Engineer <span class="sep">/</span> full-stack</p>
+                <ul class="bullets">
+                  <li>Core frontend engineer on J&amp;J's internal <b>AI/ML platform</b>. Data scientists use it to deploy models, build agents, run apps, and pass governance. TypeScript monorepo: React/Next.js, GraphQL + Apollo, Prisma/Postgres.</li>
+                  <li>Built and owned core product surfaces: a reusable <b>Component Store</b>, a schema-driven <b>agent-component builder</b>, a Flowise-based visual <b>agent workspace</b>, a platform-wide <b>search index</b>, and the <b>Command Center</b> operational dashboard.</li>
+                  <li>Rebuilt the <b>log viewer</b> from scratch. Swapped an unbounded polling loop for bounded queries, then added day-by-day lazy loading, virtualized rendering, and a Loki/ClickHouse provider abstraction.</li>
+                  <li>Re-architected auth onto <b>nginx with stateless JWT cookies</b>. Upgraded Apollo across hundreds of components, cut bundle size, added Sentry telemetry, and <b>retired a legacy GenAI service (~28k lines)</b> behind a staged Prisma migration.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="entry">
+              <div class="when">2017 – 2024<div class="where">Los Angeles · Remote</div></div>
+              <div class="body">
+                <h4 class="org">Grassdoor <span class="subname">(formerly Bidchat)</span></h4>
+                <p class="titles">iOS Co-lead <span class="sep">·</span> React Lead <span class="sep">·</span> React Native Lead</p>
+                <ul class="bullets">
+                  <li>Built and led the consumer and driver apps for a California cannabis-delivery service used by <b>hundreds of thousands</b>. A native <b>Swift customer app</b>, a native <b>driver app with CarPlay</b> routing, and a <b>Next.js website</b> (migrated off React for SSR, SEO, and performance).</li>
+                  <li>Re-architected the app, the website, and a reusable <b>iOS ordering framework</b> into a <b>white-label SaaS</b> other dispensaries could run. The company's platform bet.</li>
+                  <li>As React Native lead at the Bidchat studio, shipped client products across stacks: a dating app (<i>joon</i>), a video-debate app (<i>boutthat</i>), a <b>HIPAA-compliant telehealth</b> chat app (<i>Ootify</i>), an on-demand services app (<i>ServU</i>), an influencer revenue-sharing platform (<i>Collabspace</i>), and a Roku TV app in <b>BrightScript</b>.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="entry">
+              <div class="when">Sep 2016 – Mar 2017<div class="where">On-site</div></div>
+              <div class="body">
+                <h4 class="org">Genora</h4>
+                <p class="titles">Senior iOS Developer</p>
+                <ul class="bullets">
+                  <li>Led development of a native iOS <b>freight-management app</b>. First senior native role, and the start of a decade on the Apple platform.</li>
+                </ul>
+              </div>
+            </article>
+          </section>
+
+          <div class="foot-num"><b>01</b> / 02</div>
+        </article>
+
+        <!-- ═══════════ PAGE 2 ═══════════ -->
+        <article class="sheet">
+          <header class="runhead">
+            <span class="rh-name">Joshua Cardozo<span class="dot">.</span></span>
+            <span class="rh-meta">Curriculum Vitae · Updated June 2026</span>
+          </header>
+
+          <section class="section">
+            <div class="section-head"><span class="num">02</span><h3>Highlights</h3><span class="line"></span></div>
+            <div class="stats">
+              <div class="stat"><div class="n">~10</div><div class="l">Years shipping<br>end to end</div></div>
+              <div class="stat"><div class="n">3</div><div class="l">Platforms, one<br>product (Durigo)</div></div>
+              <div class="stat"><div class="n">100<span class="u">k+</span></div><div class="l">Customers<br>reached</div></div>
+              <div class="stat"><div class="n">~28<span class="u">k</span></div><div class="l">Lines of legacy<br>retired at J&amp;J</div></div>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head"><span class="num">03</span><h3>Selected Projects</h3><span class="line"></span></div>
+            <div class="projects">
+              <div class="project">
+                <h4 class="p-title">Durigo · Restaurant Billing &amp; Menu</h4>
+                <p class="p-meta">Swift · SwiftUI · Next.js · iOS · macOS</p>
+                <p class="p-desc">Restaurant billing and menu generation, built end to end across <b>three platforms</b>. A Next.js web app plus a native iOS and macOS app sharing one domain model. Shipped and iterated over several years.</p>
+              </div>
+              <div class="project">
+                <h4 class="p-title">Baseless Boys · Real-time Web &amp; iOS</h4>
+                <p class="p-meta">Next.js 15 · Prisma · Postgres · Pusher · Swift</p>
+                <p class="p-desc">Full-stack real-time app. Next.js App Router, Prisma/PostgreSQL, and Pusher for live updates, all on a strict API-wrapper data layer, with a native SwiftUI companion. My largest personal codebase.</p>
+              </div>
+              <div class="project">
+                <h4 class="p-title">The Whats Without · Content Platform</h4>
+                <p class="p-meta">Next.js 16 · Sanity CMS · ISR</p>
+                <p class="p-desc">A reading-first platform on Next.js 16 and Sanity. Anchor-based bookmarks that survive edits, auto table-of-contents with scroll-spy, and per-article <b>AI-generated</b> word-search and Wordle puzzles.</p>
+              </div>
+              <div class="project">
+                <h4 class="p-title">Workouts · iPhone &amp; Apple Watch</h4>
+                <p class="p-meta">Swift · SwiftUI · watchOS</p>
+                <p class="p-desc">A strength tracker for iPhone and Apple Watch. Progressive-overload targets, on-wrist set entry, RPE capture, automatic PR detection, progression charts. Built to get out of the way mid-workout.</p>
+              </div>
+              <p class="also">Also: static <b>Astro</b> marketing sites shipped with Lighthouse CI, Vitest, and broken-link checks (The Base Goa, a FIFA-certified arena; Srivilas, a 350-year-old heritage home), and an interactive quiz-show event app.</p>
+            </div>
+          </section>
+
+          <section class="section">
+            <div class="section-head"><span class="num">04</span><h3>Toolkit</h3><span class="line"></span></div>
+            <div class="skills">
+              <div class="skill-row"><span class="s-label">Languages</span><span class="s-items">TypeScript, Swift, JavaScript <span class="muted">· Kotlin, BrightScript</span></span></div>
+              <div class="skill-row"><span class="s-label">Frontend</span><span class="s-items">React, Next.js (App Router), Astro, Tailwind, Radix UI, SCSS, Storybook</span></div>
+              <div class="skill-row"><span class="s-label">Native Apple</span><span class="s-items">SwiftUI, UIKit, watchOS, macOS, CarPlay</span></div>
+              <div class="skill-row"><span class="s-label">Backend / Data</span><span class="s-items">GraphQL + Apollo, Prisma, PostgreSQL, Sanity, Pusher, REST / OpenAPI, Vapor</span></div>
+              <div class="skill-row"><span class="s-label">Infra / Quality</span><span class="s-items">Vercel, Sentry, Loki, ClickHouse, Lighthouse CI, Vitest, nginx / JWT</span></div>
+              <div class="skill-row"><span class="s-label">Ways of working</span><span class="s-items">Solo end-to-end delivery; directing AI agents to ship real products</span></div>
+            </div>
+          </section>
+
+          <div class="foot-num"><b>02</b> / 02</div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  /* ── Toolbar ─────────────────────────────────────────────── */
+  .cv { display: flex; flex-direction: column; gap: 1.25rem; }
+  .bar {
+    position: sticky;
+    top: var(--nav-h, 60px);
+    z-index: 6;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0 0.85rem;
+    background: color-mix(in oklab, var(--bg) 86%, transparent);
+    backdrop-filter: saturate(160%) blur(10px);
+    -webkit-backdrop-filter: saturate(160%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar-l h1 { font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.02em; }
+  .bar-l .sub { margin-top: 0.3rem; font-size: 0.8rem; color: var(--fg-faint); letter-spacing: 0.01em; }
+
+  .dl {
+    flex: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.88rem; font-weight: 540;
+    color: #fff; background: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+    box-shadow: 0 6px 18px -8px color-mix(in oklab, var(--accent) 70%, transparent);
+  }
+  .dl svg { transition: transform .2s ease; }
+  .dl:hover { filter: brightness(1.05); box-shadow: 0 10px 22px -8px color-mix(in oklab, var(--accent) 80%, transparent); }
+  .dl:hover svg { transform: translateY(2px); }
+  .dl:active { transform: translateY(1px); }
+
+  /* ── Desk + sheets ───────────────────────────────────────── */
+  .stage {
+    background: var(--bg-sunken);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(0.9rem, 3vw, 2.5rem);
+    display: flex; justify-content: center;
+    overflow: hidden;
+  }
+  .doc { display: flex; flex-direction: column; gap: 1.75rem; }
+
+  .sheet {
+    --pad-x: 17mm; --pad-y: 16mm;
+    position: relative;
+    width: 210mm;
+    min-height: 297mm;
+    padding: var(--pad-y) var(--pad-x);
+    background: var(--bg-elev);
+    color: var(--fg);
+    line-height: 1.5;
+    box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 30px 60px -24px rgba(0,0,0,.35);
+    border: 1px solid var(--line);
+  }
+  .sheet::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: linear-gradient(180deg, var(--accent), color-mix(in oklab, var(--accent) 55%, #000));
+  }
+  .foot-num {
+    position: absolute; right: var(--pad-x); bottom: 10mm;
+    font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.14em; color: var(--fg-faint);
+  }
+  .foot-num b { color: var(--accent); font-weight: 500; }
+
+  /* ── Masthead ────────────────────────────────────────────── */
+  .masthead { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; padding-bottom: 16px; border-bottom: 1.5px solid var(--fg); }
+  .name { font-size: 46px; font-weight: 600; letter-spacing: -0.03em; line-height: 0.98; }
+  .name .dot { color: var(--accent); }
+  .role-line { margin-top: 10px; font-size: 13px; font-weight: 500; color: var(--fg-muted); }
+  .role-line b { color: var(--accent); font-weight: 600; }
+  .contact { display: grid; gap: 4px; text-align: right; font-family: var(--font-mono); font-size: 10px; color: var(--fg-muted); }
+  .contact a { color: var(--fg-muted); transition: color .15s ease; }
+  .contact a:hover { color: var(--accent); }
+  .contact .row { display: flex; justify-content: flex-end; gap: 8px; align-items: baseline; }
+  .contact .k { color: var(--fg-faint); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8.5px; min-width: 46px; text-align: right; }
+
+  /* ── Running head (page 2) ───────────────────────────────── */
+  .runhead { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1.5px solid var(--fg); }
+  .rh-name { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+  .rh-name .dot { color: var(--accent); }
+  .rh-meta { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-faint); }
+
+  /* ── Summary ─────────────────────────────────────────────── */
+  .summary { margin-top: 16px; font-size: 12.7px; line-height: 1.62; color: var(--fg-muted); max-width: 165mm; }
+  .summary b { color: var(--fg); font-weight: 600; }
+
+  /* ── Section header ──────────────────────────────────────── */
+  .section { margin-top: 22px; }
+  .section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+  .section-head .num { font-family: var(--font-mono); font-size: 10px; font-weight: 500; color: var(--accent); letter-spacing: 0.05em; }
+  .section-head h3 { font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; color: var(--fg); white-space: nowrap; }
+  .section-head .line { flex: 1; height: 1px; background: var(--line); }
+
+  /* ── Experience entries ──────────────────────────────────── */
+  .entry { display: grid; grid-template-columns: 32mm 1fr; gap: 6mm; padding-bottom: 16px; }
+  .entry + .entry { margin-top: 2px; }
+  .when { font-family: var(--font-mono); font-size: 9.5px; color: var(--fg-faint); letter-spacing: 0.02em; line-height: 1.4; padding-top: 3px; }
+  .when .now { color: var(--accent); }
+  .where { margin-top: 7px; font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-faint); }
+  .org { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+  .org .subname { font-size: .66em; font-weight: 400; color: var(--fg-faint); }
+  .titles { margin-top: 5px; font-size: 11.5px; font-weight: 600; color: var(--accent); }
+  .titles .sep { color: color-mix(in oklab, var(--accent) 55%, transparent); font-weight: 400; padding: 0 2px; }
+  .bullets { margin-top: 9px; display: grid; gap: 6px; padding: 0; }
+  .bullets li { list-style: none; position: relative; padding-left: 15px; font-size: 11.7px; line-height: 1.5; color: var(--fg-muted); }
+  .bullets li::before { content: ""; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border: 1px solid var(--accent); transform: rotate(45deg); }
+  .bullets li b { color: var(--fg); font-weight: 600; }
+
+  /* ── Highlights band ─────────────────────────────────────── */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1.5px solid var(--fg); border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+  .stat { padding: 12px 0 12px 16px; border-left: 1px solid var(--line); }
+  .stat:first-child { border-left: 0; padding-left: 0; }
+  .stat .n { font-size: 28px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; }
+  .stat .n .u { color: var(--accent); }
+  .stat .l { margin-top: 7px; font-family: var(--font-mono); font-size: 8px; text-transform: uppercase; letter-spacing: 0.11em; color: var(--fg-faint); line-height: 1.35; }
+
+  /* ── Projects ────────────────────────────────────────────── */
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
+  .project { border-top: 1.5px solid var(--fg); padding-top: 9px; }
+  .p-title { font-size: 14px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
+  .p-meta { margin-top: 4px; font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); }
+  .p-desc { margin-top: 6px; font-size: 11px; line-height: 1.48; color: var(--fg-muted); }
+  .p-desc b { color: var(--fg); font-weight: 600; }
+  .also { grid-column: 1 / -1; margin-top: 2px; font-size: 10.5px; color: var(--fg-faint); line-height: 1.5; }
+  .also b { color: var(--fg-muted); font-weight: 600; }
+
+  /* ── Toolkit ─────────────────────────────────────────────── */
+  .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px 26px; }
+  .skill-row { display: grid; grid-template-columns: 31mm 1fr; gap: 5mm; align-items: baseline; }
+  .s-label { font-family: var(--font-mono); font-size: 8.5px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg-faint); padding-top: 1px; }
+  .s-items { font-size: 11.3px; color: var(--fg); line-height: 1.45; }
+  .s-items .muted { color: var(--fg-faint); }
+
+  @media (max-width: 560px) {
+    .bar { flex-direction: column; align-items: stretch; }
+    .dl { justify-content: center; }
+  }
+</style>
+
+<!-- Print + chrome-hiding rules need to reach outside this component -->
+<style is:global>
+  @media print {
+    @page { size: A4; margin: 0; }
+    header.nav, .site-footer, footer, #palette, .skip, .cv .bar { display: none !important; }
+    html, body { background: var(--bg) !important; }
+    body > main, main.wide.main { width: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; }
+    .cv { gap: 0 !important; }
+    .cv .stage { background: none !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important; overflow: visible !important; }
+    .cv .doc { zoom: 1 !important; gap: 0 !important; display: block !important; }
+    /* Print in whatever theme the page is in — the PDFs are generated per theme. */
+    .cv .sheet {
+      background: var(--bg-elev) !important; box-shadow: none !important; border: 0 !important; margin: 0 !important;
+      break-after: page;
+    }
+    .cv .sheet:last-child { break-after: auto; }
+    .cv .entry, .cv .project, .cv .skill-row, .cv .stat { break-inside: avoid; }
+    .cv *, .cv *::before, .cv *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  }
+</style>
+
+<script is:inline>
+  // Pin the toolbar just under the sticky nav, and scale the A4 sheets to fit narrow screens.
+  (() => {
+    const root = document.documentElement;
+    const nav = document.querySelector('header.nav');
+    const stage = document.querySelector('.cv .stage');
+    const doc = document.querySelector('.cv .doc');
+    const dl = document.querySelector('.cv .dl');
+    const SHEET_PX = 794; // 210mm @ 96dpi
+
+    // ?theme=light|dark forces the theme — used when generating the per-theme PDFs.
+    const forced = new URLSearchParams(location.search).get('theme');
+    if (forced === 'light' || forced === 'dark') root.dataset.theme = forced;
+
+    const resolveTheme = () =>
+      (root.dataset.theme === 'light' || root.dataset.theme === 'dark')
+        ? root.dataset.theme
+        : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    function setNavH() {
+      if (nav) root.style.setProperty('--nav-h', Math.round(nav.getBoundingClientRect().height) + 'px');
+    }
+    function fit() {
+      if (!stage || !doc) return;
+      const cs = getComputedStyle(stage);
+      const avail = stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      const scale = Math.min(1, avail / SHEET_PX);
+      doc.style.zoom = String(scale);
+    }
+    function syncDownload() {
+      if (!dl) return;
+      const dark = resolveTheme() === 'dark';
+      dl.href = dark ? dl.dataset.cvDark : dl.dataset.cvLight;
+      dl.setAttribute('download', dark ? 'Joshua-Cardozo-CV-dark.pdf' : 'Joshua-Cardozo-CV.pdf');
+    }
+    function run() { setNavH(); fit(); syncDownload(); }
+    run();
+    addEventListener('resize', run);
+    addEventListener('load', run);
+    new MutationObserver(syncDownload).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncDownload);
+  })();
+</script>

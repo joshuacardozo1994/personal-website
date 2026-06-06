@@ -8,5 +8,8 @@ export const site = {
   email: 'joshua.cardozo@gmail.com',
   githubUser,
   github: `https://github.com/${githubUser}`,
-  cv: '/cv.pdf',
+  cvPage: '/cv',            // the on-site CV viewer
+  cv: '/cv-light.pdf',      // default download (light)
+  cvLight: '/cv-light.pdf', // theme-matched downloads
+  cvDark: '/cv-dark.pdf',
 } as const;
