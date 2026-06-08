@@ -16,7 +16,7 @@ const experiments: Array<{ title: string; status: string; href?: string; note: s
       <li>
         <span class={`status mono status-${e.status}`}>{e.status}</span>
         <div class="copy">
-          <h3>{e.href ? <a class="link" href={e.href}>{e.title}</a> : e.title}</h3>
+          <h2>{e.href ? <a class="link" href={e.href}>{e.title}</a> : e.title}</h2>
           <p class="muted small">{e.note}</p>
         </div>
       </li>
@@ -43,6 +43,6 @@ const experiments: Array<{ title: string; status: string; href?: string; note: s
   }
   .status-wip { color: var(--accent); border-color: var(--accent-soft); }
   .copy { display: flex; flex-direction: column; gap: 0.25rem; }
-  h3 { font-size: 1.05rem; }
+  h2 { font-size: 1.05rem; }
   .small { font-size: 0.92rem; }
 </style>

@@ -7,6 +7,9 @@
 
   --accent: #0047ff;
   --accent-soft: color-mix(in oklab, var(--accent) 12%, transparent);
+  /* Accent as a filled background under white text. Same as --accent in light
+     (passes AA); the dark themes override it darker so white text still clears 4.5:1. */
+  --accent-solid: var(--accent);
 
   --bg: #fafaf7;
   --bg-elev: #ffffff;
@@ -37,6 +40,7 @@
   --line-strong: color-mix(in oklab, var(--fg) 24%, transparent);
   --accent: #5b86ff;
   --accent-soft: color-mix(in oklab, var(--accent) 18%, transparent);
+  --accent-solid: #3461e8;
   color-scheme: dark;
 }
 
@@ -47,11 +51,12 @@
     --bg-sunken: #060606;
     --fg: #f2f2ef;
     --fg-muted: #8a8a82;
-    --fg-faint: #555550;
+    --fg-faint: #80807a;
     --line: color-mix(in oklab, var(--fg) 12%, transparent);
     --line-strong: color-mix(in oklab, var(--fg) 24%, transparent);
     --accent: #5b86ff;
     --accent-soft: color-mix(in oklab, var(--accent) 18%, transparent);
+    --accent-solid: #3461e8;
     color-scheme: dark;
   }
 }

@@ -186,8 +186,8 @@ const host = Astro.site ? new URL(Astro.site).host : 'joshuacardozo.in';
     display: inline-flex; align-items: center; gap: 0.5rem;
     padding: 0.6rem 1rem;
     font-size: 0.88rem; font-weight: 540;
-    color: #fff; background: var(--accent);
-    border: 1px solid var(--accent);
+    color: #fff; background: var(--accent-solid);
+    border: 1px solid var(--accent-solid);
     border-radius: 10px;
     transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
     box-shadow: 0 6px 18px -8px color-mix(in oklab, var(--accent) 70%, transparent);
@@ -237,9 +237,10 @@ const host = Astro.site ? new URL(Astro.site).host : 'joshuacardozo.in';
   .role-line { margin-top: 10px; font-size: 13px; font-weight: 500; color: var(--fg-muted); }
   .role-line b { color: var(--accent); font-weight: 600; }
   .contact { display: grid; gap: 4px; text-align: right; font-family: var(--font-mono); font-size: 10px; color: var(--fg-muted); }
-  .contact a { color: var(--fg-muted); transition: color .15s ease; }
+  .contact a { color: var(--fg-muted); transition: color .15s ease; display: inline-flex; align-items: center; min-height: 24px; }
   .contact a:hover { color: var(--accent); }
-  .contact .row { display: flex; justify-content: flex-end; gap: 8px; align-items: baseline; }
+  /* min-height keeps each link a >=24px touch target (WCAG 2.5.8) without enlarging the type. */
+  .contact .row { display: flex; justify-content: flex-end; gap: 8px; align-items: center; min-height: 24px; }
   .contact .k { color: var(--fg-faint); text-transform: uppercase; letter-spacing: 0.14em; font-size: 8.5px; min-width: 46px; text-align: right; }
 
   /* ── Running head (page 2) ───────────────────────────────── */
@@ -322,6 +323,8 @@ const host = Astro.site ? new URL(Astro.site).host : 'joshuacardozo.in';
     }
     .cv .sheet:last-child { break-after: auto; }
     .cv .entry, .cv .project, .cv .skill-row, .cv .stat { break-inside: avoid; }
+    /* Touch-target padding is a screen concern; keep the printed contact block compact. */
+    .cv .contact a, .cv .contact .row { min-height: 0 !important; }
     .cv *, .cv *::before, .cv *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   }
 </style>
