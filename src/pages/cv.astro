@@ -315,7 +315,7 @@ const host = Astro.site ? new URL(Astro.site).host : 'joshuacardozo.in';
     body > main, main.wide.main { width: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; }
     .cv { gap: 0 !important; }
     .cv .stage { background: none !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important; overflow: visible !important; }
-    .cv .doc { zoom: 1 !important; gap: 0 !important; display: block !important; }
+    .cv .doc { zoom: 1 !important; transform: none !important; margin-bottom: 0 !important; gap: 0 !important; display: block !important; }
     /* Print in whatever theme the page is in — the PDFs are generated per theme. */
     .cv .sheet {
       background: var(--bg-elev) !important; box-shadow: none !important; border: 0 !important; margin: 0 !important;
@@ -356,7 +356,19 @@ const host = Astro.site ? new URL(Astro.site).host : 'joshuacardozo.in';
       const cs = getComputedStyle(stage);
       const avail = stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
       const scale = Math.min(1, avail / SHEET_PX);
-      doc.style.zoom = String(scale);
+      // Use transform: scale() rather than CSS `zoom`. iOS Safari miscomputes
+      // line-box heights under `zoom`, collapsing text lines so they overlap.
+      // transform scales pixel-perfectly; we then reclaim the layout box the
+      // un-scaled sheet leaves behind with a negative margin.
+      if (scale < 1) {
+        doc.style.transformOrigin = 'top center';
+        doc.style.transform = `scale(${scale})`;
+        doc.style.marginBottom = `-${Math.round((1 - scale) * doc.offsetHeight)}px`;
+      } else {
+        doc.style.transform = '';
+        doc.style.transformOrigin = '';
+        doc.style.marginBottom = '';
+      }
     }
     function syncDownload() {
       if (!dl) return;
