@@ -28,13 +28,30 @@ import { site } from '../site';
     background: transparent;
     padding: 0;
     margin: auto;
+    /* Size the dialog itself (not the inner card) using % / dvh rather
+       than vw. On iOS, 100vw is the layout viewport, which can be wider
+       than the area the modal is centered within — that overflow was
+       clipping the card's right edge and pushing its shadow off-screen.
+       The safe-area insets keep it clear of the notch / home indicator. */
+    width: min(420px, calc(100% - 2rem));
+    max-height: calc(
+      100dvh - 2rem - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
+    /* The UA stylesheet gives <dialog> overflow:auto, which clips the
+       card's drop shadow (a descendant's shadow) to the dialog box —
+       most visibly along the bottom. Let it render; the card scrolls
+       its own content instead. */
+    overflow: visible;
   }
   .p::backdrop {
     background: color-mix(in oklab, var(--bg-sunken) 70%, transparent);
     backdrop-filter: blur(6px);
   }
   .card {
-    width: min(420px, calc(100vw - 2rem));
+    width: 100%;
+    max-height: inherit;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     background: var(--bg-elev);
     border: 1px solid var(--line-strong);
     border-radius: 14px;
