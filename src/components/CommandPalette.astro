@@ -37,6 +37,11 @@ import { site } from '../site';
     max-height: calc(
       100dvh - 2rem - env(safe-area-inset-top) - env(safe-area-inset-bottom)
     );
+    /* The UA stylesheet gives <dialog> overflow:auto, which clips the
+       card's drop shadow (a descendant's shadow) to the dialog box —
+       most visibly along the bottom. Let it render; the card scrolls
+       its own content instead. */
+    overflow: visible;
   }
   .p::backdrop {
     background: color-mix(in oklab, var(--bg-sunken) 70%, transparent);
