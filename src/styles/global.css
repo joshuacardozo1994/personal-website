@@ -72,6 +72,10 @@ html {
   text-rendering: optimizeLegibility;
   font-feature-settings: 'ss01', 'ss03', 'cv11';
   scroll-behavior: smooth;
+  /* Reserve the scrollbar column on every page. Without this, pages tall enough
+     to scroll (home, work) are ~15px narrower than short ones on browsers with
+     classic scrollbars, so the centred nav row jumps between routes. */
+  scrollbar-gutter: stable;
 }
 body {
   min-height: 100dvh;
